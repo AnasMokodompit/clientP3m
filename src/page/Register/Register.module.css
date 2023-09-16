@@ -1,0 +1,114 @@
+.container{
+    background-color: #F0F0F0;
+    padding-bottom: 50px;
+}
+
+.content{
+    /* border: 1px solid black; */
+    /* box-sizing: border-box; */
+    width: 600px;
+    margin: auto;
+    height: max-content;
+    padding-top: 20px;
+}
+
+.conItemJudul {
+    font-family: 'docs-Roboto', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 0 1px gray;
+}
+
+.conItemJudul span{
+    border-radius: 5px 5px 0px 0px;
+    width: 100%;
+    height: 15px;
+    background-color: rgba(70, 6, 129, .7);
+
+    /* height: 20px; */
+    /* border: 1px solid black; */
+    position: relative;
+}
+
+.conItemJudul h4{
+    margin: 20px;
+    font-size: 20px;
+    width: max-content;
+    border-bottom: 1.3px solid rgba(108, 104, 104, 0.3);
+    padding: 15px 0;
+}
+
+.conItem{
+    /* border: 1px solid black; */
+    font-family: 'docs-Roboto', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 0 1px gray;
+}
+
+
+
+.conItem label{
+    display: flex;
+    align-content: center;
+    /* border: 1px solid black; */
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.conItem input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(130, 127, 127, .3);
+    width: 50%;
+    padding: 3px 0;
+}
+
+.select{
+    outline: none;
+    width: max-content;
+    padding: 10px;
+}
+
+option{
+    outline: none;
+}
+
+.wajib{
+    font-size: 18px;
+    margin-left: 5px;
+    color: red;
+}
+
+.conItemButton{
+    display: flex;
+    justify-content: space-between;
+    /* margin-bottom: 30px; */
+}
+
+.conItemButton input{
+    /* box-sizing: border-box; */
+    border-radius: 3px;
+    background-color: rgb(70, 6, 129);
+    color: rgb(228, 225, 225);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 7px 15px;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 620px) {
+    .content{
+        width: 450px;
+    }
+}

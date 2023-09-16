@@ -1,0 +1,403 @@
+.conTable{
+    background-color: var(--bg-200);
+    border-radius: 5px;
+    /* border: 1px solid red; */
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-top: 10px;
+}
+
+.conTable .buttonCreate{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    /* border: 1px solid red; */
+}
+
+.conTable .buttonCreate .entitas{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.conTable .buttonCreate .entitas select{
+    /* border: 1px solid black; */
+    margin: 0 7px;
+    border-radius: 5px;
+    padding: 3px;
+    outline: none;
+    border: 1px solid rgba(112, 111, 111, .5);
+}
+
+.conTable .buttonCreate .userAddButton{
+    text-decoration: none;
+    background-color: var(--primary-200);
+    color: rgb(242, 238, 238);
+    padding: 8px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(81, 75, 75, 0.2);
+}
+
+.conTable .buttonCreate .userAddButton:hover{
+    background-color: var(--primary-100);
+}
+
+.conTable table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* .conTable table::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.conTable table::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+} */
+
+.conTable table th{
+    padding: 20px 10px;
+    text-align: left;
+    font-size: 16px;
+    background-color: rgba(240, 240, 240, 0.941);
+}
+
+.conTable table th:nth-child(1){
+    text-align: center;
+}
+
+.conTable table th:nth-child(6){
+    text-align: center;
+}
+
+.conTable table td{
+    margin: 5px 0;
+    font-size: 15px;
+    /* color: rgb(112, 111, 111); */
+    color: var(--text-100);
+    padding: 3px 10px;
+}
+
+.conTable table tr{
+    border-bottom: 1px solid var(--text-100);
+}
+
+.conTable table td:nth-child(1){
+    text-align: center;
+}
+
+.conTable table td:nth-child(2){
+    max-width: 250px;
+    text-align: justify;
+}
+
+.conTable table td:nth-child(5){
+    font-size: 13px;
+    font-weight: 500;
+    /* border: 1px solid black ; */
+}
+
+.conTable table td:nth-child(6){
+    /* border: 1px solid black; */
+    width: 100px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content:last baseline;
+}
+
+
+
+/* .conTable table tbody tr:nth-child(even){
+    background-color: rgba(240, 240, 240, 0.941);
+} */
+
+.conTable table tbody tr:hover{
+    background-color: aliceblue;
+}
+
+.conTable table tbody tr:hover td{
+    color: var(--text-300);
+}
+
+.iconOptions{
+    /* margin: 15px; */
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 3px;
+    /* border: 1px solid black; */
+}
+
+.iconOptions1{
+    background-color: aquamarine;
+    border-radius: 5px;
+    color: rgb(45, 45, 145);
+}
+
+.iconOptions1:hover{
+    background-color: rgb(98, 193, 161);
+}
+
+.iconOptions3{
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+}
+
+.iconOptions3:hover{
+    background-color: rgb(156, 146, 146);
+}
+
+.iconOptions2{
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+}
+
+.iconOptions2{
+    background-color: rgb(199, 77, 77);
+}
+
+.diajukan{
+    max-width: 60px;
+    padding: 5px;
+    border-radius: 7px;
+    background-color: rgba(92, 182, 137, .3);
+    color: rgb(92, 182, 137);
+}
+
+.nonAjukan{
+    max-width: 100px;
+    padding: 4px;
+    border-radius: 7px;
+    background-color: rgba(223, 185, 94, 0.3);
+    color: goldenrod;
+}
+
+.pagenation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 7px;
+    /* border: 1px solid black; */
+}
+
+.pagenation span {
+    font-size: 14px;
+    color: var(--text-100);
+    /* border: 1px solid red; */
+}
+
+.page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page .before{
+    font-size: 17px;
+    text-align: center;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: var(--text-300);
+    background-color: rgb(183, 183, 183);
+    cursor: pointer;
+}
+
+.page .after{
+    font-size: 17px;
+    text-align: center;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: var(--text-300);
+    background-color: rgb(183, 183, 183);
+    cursor: pointer;
+}
+
+.page .number{
+    padding: 3px 10px;
+    border-radius: 4px;
+    color: var(--text-300);
+    background-color: rgba(92, 182, 137, .9);
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+.page .number:hover{
+    background-color: rgba(92, 182, 137, .7);
+
+}
+
+.page .before:hover,
+.page .after:hover{
+    background-color: rgb(150, 148, 148);
+}
+
+
+/* PopUp Create Anggota Penelitian Dosen */
+
+.containerPopUp{
+    position: fixed;
+    top: 10%;
+    left: 35%;
+    padding: 20px;
+    background-color: var(--bg-200);
+    box-shadow: 0 0 6px rgba(89, 85, 85, 0.4);
+    border-radius: 7px;
+    width: 40%;
+    color: var(--text-100);
+    /* border: 1px solid black; */
+}
+
+.containerPopUp .contentTitle{
+    padding: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.containerPopUp .contentTitle span{
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.containerPopUp .contentTitle span:hover{
+    background-color: rgba(181, 183, 185, 0.5);
+}
+
+.containerPopUp .itemPopUp{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.containerPopUp .itemPopUp .conterSearch{
+    /* border: 1px solid black; */
+    width: 100%;
+}
+.containerPopUp .itemPopUp .conterSearch .item{
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.containerPopUp .itemPopUp .conterSearch .item input{
+    /* border: 1px solid black; */
+    height: 25px;
+    width: 100%;
+    border: 1px solid rgba(146, 143, 143, .9);
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    padding: 5px 0px 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+	transition: all .3s ease;
+}
+
+.search span{
+    position: absolute;
+    right: 5px;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 3px;
+}
+
+
+/* .containerPopUp .itemPopUp .search{
+    cursor: pointer;
+} */
+
+.conterSearch .listName{
+    /* border: 1px solid black; */
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: var(--bg-content);
+    width: 100%;
+    position: relative;
+}
+
+.conterSearch .listName li{
+    width: 96%;
+    padding: 7px;
+    cursor: pointer;
+    color: black;
+}
+
+.conterSearch .listName li:hover{
+    background-color: rgba(110, 104, 104, 0.2);
+
+}
+
+.containerPopUp .itemPopUp:nth-child(8){
+    display: grid;
+    flex-direction: column;
+}
+
+.containerPopUp .itemPopUp:nth-child(8) label{
+    margin-bottom: 5px;
+}
+
+.containerPopUp .itemPopUp p{
+    max-width: 120px;
+    width: 100%;
+}
+
+.containerPopUp .itemPopUp input{
+    width: 100%;
+    height: 25px;
+    border-radius: 5px;
+    padding: 3px 0px 3px 7px;
+    border: 1px solid rgba(146, 143, 143, .9);
+}
+
+.containerPopUp .itemPopUp  textarea{
+    padding: 5px;
+    background-color: var(--bg-content);
+    border-radius: 5px;
+}
+
+.conSubmit{
+    padding: 5px;
+}
+
+.conSubmit input{
+    cursor: pointer;
+    background-color: var(--primary-100);
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid rgba(108, 106, 106, .8);
+    color: white;
+}
+
+.conSubmit input:hover{
+    background-color: var(--primary-200);
+}
+
+
+.ForBackBlackPopUp{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(21, 20, 20, 0.7);
+}
+
+.nonForBackBlackPopUp{
+    display: none;
+}

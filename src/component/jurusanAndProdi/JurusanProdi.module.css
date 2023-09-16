@@ -1,0 +1,617 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    background-color: var(--bg-100)
+}
+
+.kanan{
+    flex: 6;
+}
+
+.content{
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    min-height: 91vh;
+    background-color: var(--bg-content);
+    border-radius: 10px 0 0 0;
+    /* border-left: 0.5px solid rgb(228, 225, 225); */
+
+}
+
+/* Jurusan */
+
+.conTableJurusan{
+    margin-top: 20px;
+    background-color: var(--bg-200);
+    border-radius: 5px;
+    padding: 20px 15px;
+    /* border: 1px solid black; */
+}
+
+
+.conTableJurusan .buttonSearchAndRow{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    color: var(--text-100);
+    /* border: 1px solid black; */
+}
+
+.conTableJurusan .buttonSearchAndRow .entitas{
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.conTableJurusan .buttonSearchAndRow .entitas select{
+    /* border: 1px solid black; */
+    margin: 0 7px;
+    border-radius: 5px;
+    padding: 3px;
+    outline: none;
+    border: 1px solid rgba(112, 111, 111, .5);
+}
+
+.conTableJurusan .buttonCreate{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    /* border: 1px solid black; */
+}
+
+/* Start Search */
+.navbarHome{
+    display: flex;
+    align-items: center;
+    /* border: 1px solid black; */
+    width: 20%;
+}
+
+.navbarHome .item{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+
+.navbarHome .item input{
+    /* border: 1px solid black; */
+    height: 25px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F0F0F0;
+    padding: 5px 45px 5px 7px;
+    font-size: 14px;
+    border-radius: 5px;
+	transition: all .3s ease;
+}
+
+.search span{
+    position: absolute;
+    right: 5px;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 3px;
+    /* border: 1px solid black; */
+}
+
+.navbarHome .search span:hover{
+    color: var(--primary-200);
+}
+
+.navbarHome .item input:focus {
+    box-shadow: 0 0 0 1px var(--primary-200);
+}
+
+/* End Start */
+
+.conTableJurusan .buttonCreate{
+    display: flex;
+    justify-content: right;
+    padding: 10px 0;
+    /* border: 1px solid black; */
+}
+
+.conTableJurusan .buttonCreate .userAddButton{
+    text-decoration: none;
+    background-color: var(--primary-200);
+    color: rgb(255, 255, 255);
+    padding: 8px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(81, 75, 75, 0.2);
+}
+
+.conTableJurusan .buttonCreate .userAddButton:hover{
+    background-color: var(--primary-100);
+}
+
+.conTableJurusan table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.conTableJurusan table th{
+    padding: 20px 10px;
+    text-align: left;
+    font-size: 16px;
+    background-color: rgba(240, 240, 240, 0.941);
+}
+
+.conTableJurusan table th:nth-child(1){
+    width: 70px;
+    text-align: center;
+}
+
+.conTableJurusan table th:nth-child(2){
+    text-align: center;
+}
+
+.conTableJurusan table td{
+    margin: 5px 0;
+    font-size: 15px;
+    color: var(--text-100);
+    padding: 3px 10px;
+}
+
+.conTableJurusan table tr{
+    border-bottom: 1px solid var(--text-100);
+}
+
+.conTableJurusan table td:nth-child(1){
+    text-align: center;
+}
+
+.conTableJurusan table td:nth-child(2){
+    text-align: center;
+}
+.conTableJurusan table td:nth-child(3){
+    width: 100px;
+    text-align: center;
+}
+
+.conTableJurusan table td:nth-child(3) p{
+    display: flex;
+}
+
+.conTableJurusan table tbody tr:hover{
+    background-color: aliceblue;
+}
+
+.conTableJurusan table tbody tr:hover td{
+    color: var(--text-300);
+}
+
+
+/* Akhir Jurusan */
+
+
+/* Program Studi */
+
+.conTableProdi{
+    margin-top: 20px;
+    background-color: var(--bg-200);
+    border-radius: 5px;
+    padding: 20px 15px;
+}
+
+.conTableProdi .buttonCreate{
+    display: flex;
+    justify-content: right;
+    padding: 10px 0;
+    /* border: 1px solid black; */
+}
+
+.conTableProdi .buttonSearchAndRow{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    color: var(--text-100);
+    /* border: 1px solid black; */
+}
+
+.conTableProdi .buttonSearchAndRow .entitas{
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.conTableProdi .buttonSearchAndRow .entitas select{
+    border: 1px solid black;
+    margin: 0 7px;
+    border-radius: 5px;
+    padding: 3px;
+    outline: none;
+    border: 1px solid rgba(112, 111, 111, .5);
+}
+
+.conTableProdi .buttonCreate .userAddButton{
+    text-decoration: none;
+    background-color: var(--primary-200);
+    color: rgb(255, 255, 255);
+    padding: 8px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(81, 75, 75, 0.2);
+}
+
+.conTableProdi .buttonCreate .userAddButton:hover{
+    background-color: var(--primary-100);
+}
+
+.conTableProdi table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.conTableProdi table th{
+    padding: 20px 10px;
+    text-align: left;
+    font-size: 16px;
+    background-color: rgba(240, 240, 240, 0.941);
+}
+
+.conTableProdi table th:nth-child(1){
+    text-align: center;
+}
+
+.conTableProdi table th:nth-child(2){
+    text-align: center;
+}
+
+.conTableProdi table th:nth-child(3){
+    text-align: center;
+}
+.conTableProdi table th:nth-child(4){
+    text-align: center;
+}
+
+.conTableProdi table td{
+    margin: 5px 0;
+    font-size: 15px;
+    color: var(--text-100);
+    padding: 3px 10px;
+}
+
+.conTableProdi table tr{
+    border-bottom: 1px solid var(--text-100);
+}
+
+.conTableProdi table td:nth-child(1){
+    text-align: center;
+}
+
+.conTableProdi table td:nth-child(2){
+    text-align: center;
+}
+.conTableProdi table td:nth-child(3){
+    text-align: center;
+}
+
+.conTableProdi table td:nth-child(4) p{
+    display: flex;
+    justify-content: center;
+}
+
+.conTableProdi table tbody tr:hover{
+    background-color: aliceblue;
+}
+
+.conTableProdi table tbody tr:hover td{
+    color: var(--text-300);
+}
+
+
+/* Akhir Program Studi */
+
+.iconOptions{
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 3px;
+}
+
+.iconOptions:nth-child(1){
+    background-color: aquamarine;
+    border-radius: 5px;
+    color: rgb(45, 45, 145);
+}
+
+.iconOptions:nth-child(1):hover{
+    background-color: rgb(98, 193, 161);
+}
+
+.iconOptions:nth-child(3){
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+}
+
+.iconOptions:nth-child(3):hover{
+    background-color: rgb(156, 146, 146);
+}
+
+.iconOptions:nth-child(2){
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+}
+
+.iconOptions:nth-child(2):hover{
+    background-color: rgb(199, 77, 77);
+}
+
+.diajukan{
+    max-width: 60px;
+    padding: 5px;
+    border-radius: 7px;
+    background-color: rgba(92, 182, 137, .3);
+    color: rgb(92, 182, 137);
+}
+
+.nonAjukan{
+    max-width: 100px;
+    padding: 4px;
+    border-radius: 7px;
+    background-color: rgba(223, 185, 94, 0.3);
+    color: goldenrod;
+}
+
+.pagenation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 7px;
+    /* border: 1px solid black; */
+}
+
+.pagenation span {
+    font-size: 14px;
+    color: var(--text-100);
+}
+
+.page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page .before{
+    font-size: 17px;
+    text-align: center;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: var(--text-300);
+    background-color: rgb(183, 183, 183);
+    cursor: pointer;
+}
+
+.page .after{
+    font-size: 17px;
+    text-align: center;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: var(--text-300);
+    background-color: rgb(183, 183, 183);
+    cursor: pointer;
+}
+
+.page .number{
+    padding: 3px 10px;
+    border-radius: 4px;
+    color: var(--text-300);
+    background-color: rgba(92, 182, 137, .9);
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+.page .number:hover{
+    background-color: rgba(92, 182, 137, .7);
+
+}
+
+.page .before:hover,
+.page .after:hover{
+    background-color: rgb(150, 148, 148);
+}
+
+
+/* PopUp Action Menu */
+
+.buttonActionMenu{
+    position: fixed;
+    background-color: rgb(222, 219, 219);
+    display: flex;
+    flex-direction: column;
+    margin-top: 8%;
+    right: 40px;
+    border-radius: 5px;
+}
+
+.buttonActionMenu span{
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 5px;
+}
+
+.buttonActionMenu span:hover{
+    background-color: gray;
+    color: white;
+}
+
+/* Akhir */
+
+
+
+/* Popup  Admin*/
+
+.containerPopUp{
+    position: fixed;
+    z-index: 9999;
+    top: 20%;
+    left: 35%;
+    padding: 20px;
+    box-shadow: 0 0 6px rgba(89, 85, 85, 0.4);
+    background-color: var(--bg-200);
+    border-radius: 7px;
+    width: 35%;
+    color: var(--text-100);
+    /* border: 1px solid black; */
+}
+
+
+.containerPopUp .contentTitle{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+
+.containerPopUp .contentTitle p {
+    font-size: 18px;
+}
+
+.containerPopUp .contentTitle span {
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.containerPopUp .contentTitle span:hover{
+    background-color: rgba(181, 183, 185, 0.5);
+}
+
+.containerPopUp .itemPopUp {
+    padding: 5px;
+    margin: 7px 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.containerPopUp .itemPopUp label{
+    margin-bottom: 5px;
+}
+
+.containerPopUp .itemPopUp input{
+    height: 28px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.containerPopUp .itemPopUp select{
+    height: 30px;
+    /* border: 1px solid black; */
+}
+
+.containerPopUp .itemPopUp select option{
+    font-size: 14px;
+}
+
+
+.containerPopUp .contentTitle{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.containerPopUp .contentTitle p {
+    font-size: 18px;
+}
+
+.containerPopUp .contentTitle span {
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.containerPopUp .contentTitle span:hover{
+    background-color: rgba(181, 183, 185, 0.5);
+}
+
+.containerPopUp .itemPopUp {
+    padding: 5px;
+    margin: 7px 0;
+    font-size: 15px;
+}
+
+
+.containerPopUp .itemPopUp label{
+    margin-bottom: 5px;
+}
+
+.containerPopUp .horizontal{
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerPopUp .horizontal .itemPopUp{
+    width: 190px;
+}
+
+.containerPopUp .itemPopUp input{
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.revisi textarea{
+    margin-top: 3px;
+    width: 100%;
+}
+/*  */
+
+
+.conSubmit{
+    padding: 5px;
+}
+
+.conSubmit input{
+    cursor: pointer;
+    background-color:aqua;
+    padding: 5px 10px;
+    background-color: var(--primary-100);
+    border-radius: 3px;
+    border: 1px solid rgba(108, 106, 106, .8);
+    color: white;
+}
+
+.conSubmit input:hover{
+    background-color: var(--primary-200);
+}
+
+.ForBackBlackPopUp{
+    position: fixed;
+    z-index: 888;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(21, 20, 20, 0.7);
+}
+
+.nonForBackBlackPopUp{
+    display: none;
+}
+
+
+a{
+    text-decoration: none;
+}

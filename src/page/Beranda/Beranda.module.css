@@ -1,0 +1,229 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    background-color: var(--bg-100)
+}
+
+.container .kanan{
+    flex: 6;
+}
+
+.container .kanan .content{
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    min-height: 91vh;
+    background-color: var(--bg-content);
+    border-radius: 10px 0 0 0;
+    color: var(--text-100);
+    /* border-left: 0.5px solid rgb(228, 225, 225); */
+
+}
+
+.container .kanan .content .containerItem{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+}
+
+.container .kanan .content .containerItem .infomation{
+    display: flex;
+    justify-content: space-between;
+}
+
+.swiperjs{
+    width: 67%;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
+.contentItemLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px 0;
+    justify-content: center;
+    /* border: 1px solid black; */
+    align-items: center;
+    width: 30%;
+}
+
+.contentItemLeft .cardPenelitian{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    height: 80px;
+    color: #1E2022;
+    width: 100%;
+}
+
+.contentItemLeft .cardPenelitian .logoCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    margin-top: 8px;
+    background: #C9D6DF;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.contentItemLeft .cardPenelitian .detailContentItemLeft{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.contentItemLeft .cardPenelitian .detailContentItemLeft p:nth-child(1){
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.334em;
+    margin-left: 2px;
+    color: #C9D6DF;
+}
+
+.contentItemLeft .cardPenelitian .detailContentItemLeft p:nth-child(2){
+    font-size: 1rem;
+    color: #C9D6DF;
+}
+
+.contentItemLeft .cardPengabdian{
+    display: flex;
+    align-items: center;
+    height: 80px;
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    color: #1E2022;
+    width: 100%;
+}
+
+.contentItemLeft .cardPengabdian .logoCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    margin-top: 8px;
+    background: #C9D6DF;
+    cursor: pointer;
+    margin: 20px;
+    color: rgb(45, 43, 43);
+}
+
+.contentItemLeft .cardPengabdian .detailContentItemLeft{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    color: #C9D6DF;
+}
+
+.contentItemLeft .cardPengabdian .detailContentItemLeft p:nth-child(1){
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.334em;
+    margin-left: 2px;
+}
+
+.contentItemLeft .cardPengabdian .detailContentItemLeft p:nth-child(2){
+    font-size: 1rem;
+    color: #C9D6DF;
+}
+
+
+.container .kanan .content .containerItem .chart{
+    display: flex;
+    flex-direction: column;
+    width: 67%;
+    height: max-content;
+    justify-content: space-between;
+    margin-top: 20px;
+    background-color: #F0F5F9;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 12px;
+    /* color: #F0F5F9; */
+}
+
+.menuChart{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    /* border: 1px solid black; */
+}
+
+
+.sideDua{
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+
+.pemberitahun{
+    /* border: 1px solid black; */
+    width: 30%;
+    height: max-content;
+    box-sizing: border-box;
+    margin-top: 20px;
+    background-color: var(--bg-200);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.usulan{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.usulan p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.usulanItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #F0F5F9;
+    padding: 10px;
+}
+
+.usulanItem .detail{
+    display: flex;
+    align-items: center;
+}
+
+.usulanItem .detail span:nth-child(2){
+    margin-left: 10px;
+    background-color: rgb(159, 187, 173);
+    color: white;
+    font-size: 17px;
+    padding: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.usulanItem:nth-child(3) .detail span:nth-child(2){
+    background-color: aquamarine;
+    color: rgb(168, 162, 162);
+}
+
+.usulanItem:nth-child(4) .detail span:nth-child(2){
+    background-color: yellowgreen;
+}
+
+.usulanItem:nth-child(5) .detail span:nth-child(2){
+    background-color: rgb(198, 66, 66);
+}

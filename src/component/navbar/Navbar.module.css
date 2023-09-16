@@ -1,0 +1,275 @@
+/* Style Warna */
+:root {
+--primary-100:#1E2022;
+--primary-200:#34373b;
+--primary-300:#F0F5F9;
+--accent-100:#788189;
+--accent-200:#e1e4e6;
+--text-100:#1E2022;
+--text-200:#52616B;
+--text-300: #52616B;
+--bg-100:#F0F5F9;
+--bg-200:#C9D6DF;
+--bg-300:#bfc7d1;   
+--bghover-100:#C9D6DF;
+--bghovertext-100:#1E2022;
+--bg-content:#e1e4e6;
+--bg-card: #52616B;
+--box-shadow:rgb(101, 97, 97); 
+--bg-jdl-usl: #7C9D96;
+--text-jdl-usl: black;
+--bg-prfl-shw: white;
+--bg-prfl-edt: white;
+--inpt-prfledt:white;
+--clor-link:rgb(74, 74, 196);
+}
+
+[data-theme='dark'] {
+    --primary-100:#2563eb;
+    --primary-200:#598EF3;
+    --primary-300:#D3E6FE;
+    --accent-100:#d946ef;
+    --accent-200:#fae8ff;
+    --text-100:#cbd5e1;
+    --text-200:#94a3b8;
+    --text-300: #1e293b;
+    --bg-100:#1e293b;
+    --bg-200:#334155;
+    --bg-300:#475569;
+    --bghover-100:#D3E6FE;
+    --bghovertext-100:#334155;
+    --bg-content:#cbd5e1;
+    --bg-card:#334155;
+    --box-shadow:rgb(180, 171, 171); 
+    --bg-jdl-usl: #0B666A;
+    --text-jdl-usl: #97FEED;
+    --bg-prfl-shw: #475569;
+    --bg-prfl-edt: #475569;
+    --inpt-prfledt:rgb(245, 245, 245);
+    --clor-link:rgb(195, 195, 231);
+}
+
+/* *{
+    transition: all 0.3s ease-in-out;
+} */
+
+/* Akhir */
+
+
+
+.navbar{
+    padding: 15px; 
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--bg-100);
+}
+
+.navbar .navbarHome{
+    display: flex;
+    align-items: center;
+    
+}
+
+.navbar .navbarHome .item{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    position: relative;
+}
+
+#icon{
+    margin-right: 15px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.notifIcon{
+    color: var(--text-100);
+}
+
+.img{
+    color: var(--text-100);
+}
+
+.navbar .navbarSettings{
+    display: flex;
+    align-items: center;
+}
+
+.navbar .navbarSettings .item{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar .navbarSettings .item .notications{
+    /* border: 1px solid black; */
+    height: 250px;
+    overflow: hidden;
+    scroll-behavior: auto;
+    display: block;
+    overflow-y: scroll;
+    opacity: 1;
+    z-index: 10000;
+}
+
+.tes{
+    height:0px;
+    padding: 0 20px;
+	width:0px;
+	border-bottom:solid 20px transparent;
+	border-left:solid 20px transparent;
+	border-right:solid 20px transparent;
+    position: fixed;
+    top: 42px;
+    right: 9.5%;
+}
+
+
+.navbar .navbarSettings .notications{
+    position: absolute;
+    transition: .1;
+    opacity: 0;
+    display: none;
+    margin-top: 30px;
+    top: 40%;
+    right: 0;
+    border-radius: 5px;
+    background-color: white;
+    padding: 0 10px;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, .2);
+}
+
+.navbar .navbarSettings .notications .notifItem{
+    border-bottom: 1.5px solid rgba(86, 82, 82, 0.5);
+    padding-top: 11px;
+    padding-bottom: 11px;
+    /* border: 1px solid black; */
+}
+
+.navbar .navbarSettings .notications .topContent{
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .navbarSettings .notications .topContent .notRead{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(230, 66, 66);
+    border-radius: 5px;
+}
+
+.navbar .navbarSettings .notications .topContent span{ 
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, .9);
+}
+
+.navbar .navbarSettings .notications p:nth-child(2){
+    width: 230px;
+    text-align: left;
+}
+
+.navbar .navbarSettings .notications p{
+    font-size: 14px;
+    line-height: 17px;
+    font-family: 'Lato', sans-serif;
+    margin-top: 6px;
+}
+
+.navbar .navbarSettings .notications p span{
+    /* border: 1px solid black; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight:600;
+}
+
+.navbar .navbarSettings .item .budge{
+    background-color: lightgreen;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -10px;
+    right: -9px;
+    font-weight:700;
+}
+
+.navbar .navbarSettings .navbarContent{
+    margin-left: 8px;
+    display: grid;
+}
+
+.navbar .navbarSettings .navbarContent img{
+    width: 35px;
+    height: 35px;
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.navbar .navbarSettings .navbarContent .img{
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+.navbar .navbarSettings .navbarContent .profile_link{
+    position: absolute;
+    top: calc(100% + 15px);
+    right: -20px;
+    width: 120px;
+    background-color: white;
+    box-shadow: -10px -10px 26px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    opacity: 0;
+    display: none;
+    transition: .5s;
+}
+
+.navbar .navbarSettings .navbarContent .profile_link li{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+.navbar .navbarSettings .navbarContent .profile_link li a{
+    height: 20px;
+    padding: 5px 45px 5px 0px;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar .navbarSettings .navbarContent .profile_link li a:hover{
+    color: rgb(51, 179, 204);
+}
+
+.navbar .navbarSettings .navbarContent .profile_link li:hover{
+    color: rgb(51, 179, 204);
+}
+
+
+.navbar .navbarSettings .navbarContent:hover .profile_link {
+    opacity: 1;
+    display: block;
+    width: 140px;
+}
+
+.navbar .navbarSettings .navbarContent .profile_link span {
+    height:0px;
+	width:0px;
+	border-bottom:solid 20px white;
+	border-left:solid 20px transparent;
+	border-right:solid 20px transparent;
+    position: fixed;
+    top: 45px;
+    right: 30px;
+}

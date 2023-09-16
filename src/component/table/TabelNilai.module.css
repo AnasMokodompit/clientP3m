@@ -1,0 +1,496 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    background-color: var(--bg-100)
+}
+
+.kanan{
+    flex: 6;
+}
+
+.content{
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    min-height: 91vh;
+    background-color: var(--bg-content);
+    border-radius: 10px 0 0 0;
+    /* border-left: 0.5px solid rgb(228, 225, 225); */
+
+}
+
+.conTable{
+    margin-top: 20px;
+    background-color: var(--bg-200);
+    border-radius: 5px;
+    padding: 20px 15px;
+}
+
+.conTable .buttonSearchAndRow{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    color: var(--text-100);
+    /* border: 1px solid black; */
+}
+
+.conTable .buttonSearchAndRow .entitas{
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.conTable .buttonSearchAndRow .entitas select{
+    border: 1px solid black;
+    margin: 0 7px;
+    border-radius: 5px;
+    padding: 3px;
+    outline: none;
+    border: 1px solid rgba(112, 111, 111, .5);
+}
+
+
+/* Start Search */
+.navbarHome{
+    display: flex;
+    align-items: center;
+    /* border: 1px solid black; */
+    width: 20%;
+}
+
+.navbarHome .item{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+
+.navbarHome .item input{
+    /* border: 1px solid black; */
+    height: 25px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F0F0F0;
+    padding: 5px 45px 5px 7px;
+    font-size: 14px;
+    border-radius: 5px;
+	transition: all .3s ease;
+}
+
+.search span{
+    position: absolute;
+    right: 5px;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 3px;
+    /* border: 1px solid black; */
+}
+
+.navbarHome .search span:hover{
+    color: var(--primary-200);
+}
+
+.navbarHome .item input:focus {
+    box-shadow: 0 0 0 1px var(--primary-200);
+}
+
+/* End Start */
+
+.conTable .buttonCreate .userAddButton{
+    text-decoration: none;
+    background-color: var(--primary-200);
+    color: rgb(255, 255, 255);
+    padding: 8px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(81, 75, 75, 0.2);
+}
+
+.conTable .buttonCreate .userAddButton:hover{
+    background-color: var(--primary-100);
+}
+
+.conTable table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.conTable table th{
+    padding: 20px 10px;
+    text-align: left;
+    font-size: 16px;
+    background-color: rgba(240, 240, 240, 0.941);
+}
+
+.conTable table th:nth-child(1){
+    text-align: center;
+}
+
+.conTable table th:nth-child(6){
+    text-align: center;
+}
+
+.conTable table td{
+    margin: 5px 0;
+    font-size: 15px;
+    color: var(--text-100);
+    padding: 3px 10px;
+}
+
+.conTable table tr{
+    border-bottom: 1px solid var(--text-100);
+}
+
+.conTable table td:nth-child(1){
+    text-align: center;
+}
+
+.conTable table td:nth-child(2){
+    max-width: 250px;
+    text-align: justify;
+}
+
+.conTable table td:nth-child(5){
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.conTable table td:nth-child(7) div{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 0;
+}
+
+
+/* .conTable table tbody tr:nth-child(even){
+    background-color: rgba(240, 240, 240, 0.941);
+} */
+
+.conTable table tbody tr:hover{
+    background-color: aliceblue;
+}
+
+.conTable table tbody tr:hover td{
+    color: var(--text-300);
+}
+
+.conTable table tbody tr:hover td p{
+	color: var(--text-300);
+}
+
+
+.iconOptions{
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 2px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+
+.readOpsi{
+    background-color: aquamarine;
+    color: rgb(45, 45, 145);
+}
+
+.readOpsi:hover{
+    background-color: rgb(98, 193, 161);
+}
+
+.EditOpsi{
+    background-color: rgb(58, 158, 219);
+    color: white
+}
+
+.EditOpsi:hover{
+    background-color: rgb(5, 104, 166);
+
+}
+
+.opsionOpsi{
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+}
+
+.opsionOpsi:hover{
+    background-color: rgb(156, 146, 146);
+}
+
+.deleteOpsi{
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+}
+
+.deleteOpsi:hover{
+    background-color: rgb(199, 77, 77);
+}
+
+.diajukan{
+    max-width: 60px;
+    padding: 5px;
+    border-radius: 7px;
+    background-color: rgba(92, 182, 137, .3);
+    color: rgb(92, 182, 137);
+}
+
+.sedangDiNilai{
+    max-width: 100px;
+    padding: 4px;
+    border-radius: 7px;
+    background-color: rgba(23, 47, 179, 0.3);
+    color: rgb(32, 35, 82);
+}
+
+.nonAjukan{
+    max-width: 100px;
+    padding: 4px;
+    border-radius: 7px;
+    background-color: rgba(223, 185, 94, 0.3);
+    /* color: goldenrod; */
+    color: var(--text-100);
+}
+
+.dibiayai{
+    max-width: 100px;
+    padding: 4px;
+    border-radius: 7px;
+    background-color: rgba(31, 188, 20, 0.3);
+    /* color: rgb(29, 57, 33); */
+    color: var(--text-100);
+}
+
+.gagaldibiayai{
+    max-width: 100px;
+    padding: 4px;
+    border-radius: 7px;
+    background-color: rgba(221, 97, 97, 0.4);
+    /* color: rgba(23, 8, 11, 0.7); */
+    color: var(--text-100);
+}
+
+.pagenation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 7px;
+    /* border: 1px solid black; */
+}
+
+.pagenation span {
+    font-size: 14px;
+    color: var(--text-100);
+}
+
+.page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page .before{
+    font-size: 17px;
+    text-align: center;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: var(--text-300);
+    background-color: rgb(183, 183, 183);
+    cursor: pointer;
+}
+
+.page .after{
+    font-size: 17px;
+    text-align: center;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: var(--text-300);
+    background-color: rgb(183, 183, 183);
+    cursor: pointer;
+}
+
+.page .number{
+    padding: 3px 10px;
+    border-radius: 4px;
+    color: var(--text-300);
+    background-color: rgba(92, 182, 137, .9);
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+.page .number:hover{
+    background-color: rgba(92, 182, 137, .7);
+
+}
+
+.page .before:hover,
+.page .after:hover{
+    background-color: rgb(150, 148, 148);
+}
+
+/* PopUp Action Menu */
+
+.buttonActionMenu{
+    position: fixed;
+    background-color: rgb(222, 219, 219);
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    right: 40px;
+    border-radius: 5px;
+}
+
+.buttonActionMenu .pdfUsulanPenelitian{
+    padding: 7px 15px;
+    border-radius: 5px;
+    color: rgb(112, 111, 111);
+}
+
+.buttonActionMenu .pdfUsulanPenelitian:hover{
+    background-color: gray;
+    color: white;
+}
+
+.buttonActionMenu .ajukanPenelitian{
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 5px;
+}
+
+.buttonActionMenu .nilaiPenelitian{
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    padding: 7px 0px;
+    border-radius: 5px;
+    color: rgb(112, 111, 111);
+}
+
+.buttonActionMenu .nilaiPenelitian:hover{
+    background-color: gray;
+    color: white;
+}
+
+.buttonActionMenu span:hover{
+    background-color: gray;
+    color: white;
+}
+
+/* Akhir */
+
+
+
+/* Popup */
+
+.containerPopUp{
+    position: fixed;
+    top: 20%;
+    left: 35%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 6px rgba(89, 85, 85, 0.4);
+    border-radius: 7px;
+    width: 35%;
+    /* border: 1px solid black; */
+}
+
+
+.containerPopUp .contentTitle{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+
+.containerPopUp .contentTitle span {
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.containerPopUp .contentTitle span:hover{
+    background-color: rgba(181, 183, 185, 0.5);
+}
+
+.containerPopUp .itemPopUp {
+    padding: 5px;
+    margin: 7px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerPopUp .itemPopUp label{
+    margin-bottom: 5px;
+}
+
+.containerPopUp .itemPopUp select{
+    height: 30px;
+}
+
+.containerPopUp .itemPopUp textarea{
+    padding: 5px;
+    height: 100px;
+}
+
+.conHorizontal{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.containerPopUp .conHorizontal .itemPopUp:nth-child(1) input{
+    width: 150px;
+    height: 25px;
+}
+
+.containerPopUp .conHorizontal .itemPopUp:nth-child(2) input{
+    width: 300px;
+    height: 25px;
+}
+
+.conSubmit{
+    padding: 5px;
+}
+
+.conSubmit input{
+    cursor: pointer;
+    background-color:aqua;
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid rgba(108, 106, 106, .8);
+}
+
+.conSubmit input:hover{
+    background-color:rgb(56, 219, 219);
+}
+
+.ForBackBlackPopUp{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(21, 20, 20, 0.7);
+}
+
+.nonForBackBlackPopUp{
+    display: none;
+}
+
+
+a{
+    text-decoration: none;
+}

@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.style{
+    /* border: 1px solid black; */
+    width: 50%;
+    height: 100vh;
+    border-radius: 0 0 80% 0;
+    background-size: cover;
+    background: linear-gradient(-45deg, #4481eb, #04befe);
+}
+
+.style div {
+    margin: auto;
+    text-align: center;
+    padding-top: 290px;
+    /* flex-direction: column; */
+    width: 100%;
+    max-width: 600px;
+    font-size: 20px;
+    color: white;
+    font-family: 'Cinzel', serif;
+    /* border: 1px solid black; */
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.style div .info{
+    margin-top: 80px;
+}
+
+.style div .info span {
+    font-style: italic;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.form_container{
+    position: absolute;
+    top: 27%;
+    left: 60%;
+    width: 27%;
+}
+
+.sign_up_form{
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sign_up_form .title {
+    font-size: 35px;
+    font-weight:800;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sign_up_form .input_field {
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+}
+
+.sign_up_form .input_field input{
+    height: 45px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F0F0F0;
+    font-weight: 500;
+    border-radius: 10px;
+    padding-left: 40px;
+	transition: all .3s ease;
+
+}
+
+.sign_up_form .input_field span {
+    position: absolute;
+    left: 5px;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 3px;
+    margin-right: 10px;
+}
+
+.sign_up_form .input_field input:focus{
+    box-shadow: 0 0 0 1px rgb(0,156,77), 0 0 0 3px lightgreen;
+}
+
+.forgetPswd{
+    max-width: 380px;
+    font-size: 14px;
+    padding-right: 10px;
+    width: 100%;
+    text-align: right;
+    cursor: pointer;
+    margin-top: 5px;
+    font-style: italic;
+    color: rgb(124, 125, 125);
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.forgetPswd span:hover{
+    color: rgb(187, 63, 63);
+}
+
+.login {
+    border: none;
+    max-width: 330px;
+    height: 40px;
+    width: 100%;
+    font-weight: 800;
+    font-size: 15px;
+    background-color: rgb(135, 221, 178);
+    padding: 5px 20px;
+    border-radius: 50px;
+    color: rgb(124, 125, 125);
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    transition: .5s;
+    margin-top: 30px;
+}
+
+.login:hover{
+    background-color: rgb(109, 189, 149);
+}

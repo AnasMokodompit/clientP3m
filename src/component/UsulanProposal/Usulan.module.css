@@ -1,0 +1,321 @@
+
+.container{
+    background-color: gray;
+}
+
+.buttonPrintCon{
+    background-color: white;
+    margin: auto;
+    width: 800px;
+    text-align: center;
+    padding: 7px 0;
+    border-bottom: 2px solid rgba(113, 113, 113, .7);
+    margin-bottom: 20px;
+    /* border: 1px solid white;  */
+}
+
+.buttonPrintCon .buttonPrint{
+    padding: 7px;
+    background-color: aqua;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttonPrintCon .buttonPrint:hover{
+    background-color: rgb(28, 227, 227);
+}
+
+.content{
+    background-color: white;
+    width: 800px;
+    height: 100%;
+    margin: auto;
+    border: 1px solid white;
+    box-shadow: 0 0 2px gray;
+}
+
+
+/* Lembar Pertama */
+
+.cover{
+    padding: 100px 90px;
+    box-sizing: border-box;
+    width: 211mm;
+    height: 299mm;
+    margin: auto;
+    border: 1px solid white;
+    /* background-color: red; */
+}
+
+.judulCover{
+    border: 1px solid white;
+    width: 100%;
+    text-align : center;
+}
+
+.imgCover{
+    border: 1px solid white;
+    margin: auto;
+    width: max-content;
+    margin-top: 50px;
+}
+
+.judulPenelitianCover{
+    border: 1px solid white;
+    width: 100%;
+    margin: auto;
+    margin-top: 60px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+.judulPenelitianCover span{
+    font-family: "Times New Roman";
+    font-size: 16.3px;
+    font-size: 15px;
+    color: #000000;
+    width: 50%;
+    line-height: 25px;
+}
+
+
+.jdlAnggota{
+    border: 1px solid white;
+    margin-top: 50px; 
+    width: 100%;
+    text-align: center; 
+    margin-bottom: 15px;
+}
+
+.nameUserCover{
+    border: 1px solid white;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.buttonCover{
+    border: 1px solid white;
+    display: grid;
+    /* align-self: flex-end; */
+    margin-top: 250px;
+    /* margin-bottom: 92px; */
+    /* width: 100%;  */
+    text-align: center;
+}
+
+.buttonCover span{
+    margin-bottom: 10px;
+}
+
+
+/* Akhir Lembar Pertama */
+
+
+
+/* Lembar Kedua */
+
+.lembarPengesahan1{
+    width: 211mm;
+    height: 299mm;
+    border: 1px solid white;
+    padding: 100px 90px;
+    box-sizing: border-box;
+    border-bottom: 1px solid white;
+    margin: auto;
+}
+
+.jldHalamanPengesahan{
+    border: 1px solid white;
+    display: grid;
+    /* position: relative; */
+    /* top: 95.6877px; */
+    /* width: 100%; */
+    text-align: center;
+}
+
+.jldHalamanPengesahan span:nth-child(2){
+    margin-top: 10px;
+}
+
+.jldPenelitanHlmPengesahan{
+    border: 1px solid white;
+    display: flex;
+    /* align-content: center; */
+    align-items: start;
+    align-self: center;
+    /* position: relative; */
+    margin-top: 25px;
+    /* margin-left: 100px; */
+}
+
+.jldPenelitanHlmPengesahan span{
+    line-height: 25px;
+}
+
+.dataPartisipasi{
+    border: 1px solid white;
+    display: flex;
+    /* align-content: center; */
+    /* position: relative; */
+    top: 140px;
+    /* margin-left: 100px; */
+    margin-top: 5px;
+}
+
+/* .dataPartisipasi span{
+    line-height: 25px;
+} */
+
+.jdlulValue{
+    width: 30%;
+    border: 1px solid white;
+}
+
+.valueJdul{
+    display: flex;
+    width: 70%;
+    border: 1px solid white;
+    /* border: 1px solid black; */
+}
+
+
+/* Akhir Lembar Kedua */
+
+
+/* Lembar Ketiga */
+
+.lembarPengesahan2{
+    padding: 100px 90px;
+    box-sizing: border-box;
+    /* width: 815px; */
+    /* height: 1054px; */
+    /* height: 1120px; */
+    width: 211mm;
+    height: 299mm;
+    position: relative;
+    border: 1px solid  white;
+    margin: auto;
+    z-index: 1;
+}
+
+.dateLmbPengesahan{
+    display: flex;
+    justify-content: end;
+    border: 1px solid  white;  
+}
+
+.dateLmbPengesahan span{
+    text-align: center;
+    border: 1px solid  white;
+    width: 33%;
+}
+
+.compenentOne{
+    margin-top: 50px;
+    border: 1px solid  white;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.compenentOne .comItem{
+    text-align: center;
+}
+
+.comItem{
+    width: 33%;
+    border: 1px solid  white;  
+    display: flex;
+    flex-direction: column;
+}
+
+.comItem span{
+    line-height: 25px;
+}
+
+
+
+
+
+.compenentTwo{
+    margin-top: 120px;
+    border: 1px solid  white;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.compenentThree{
+    border: 1px solid  white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.compenentFour{
+    margin-top: 120px;
+    border: 1px solid  white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.pos { 
+    position: absolute;
+    z-index: 0; 
+    left: 0px; 
+    top: 0px;
+    text-align: center;
+}
+
+
+#_191{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19.1px;
+    color: #000000;
+}
+
+#_192{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16.3px;
+    color: #000000;
+}
+
+#_193{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16.3px;
+    color: #000000;
+    /* border: 1px solid black; */
+}
+
+.valueHalamanPengesahan{
+    position: relative;
+    left: 336;
+    margin-left: 336px;
+}
+
+.pdfInputUsulan{
+    position: relative;
+    width: 100%;
+    height: max-content;
+    margin: auto;
+}
+
+
+
+
+
+
+.border{
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: gray;
+}

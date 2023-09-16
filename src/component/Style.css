@@ -1,0 +1,270 @@
+/* Table */
+/* 
+.conTable .tableData th{
+    text-align: center;
+}
+
+.conTable .tableData .opsi {
+    display: flex;
+    justify-content: space-between;
+}
+
+.conTable .tableData .opsi .button{
+    border-radius: 5px;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: white;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.conTable .tableData .opsi .userDetailButton{
+    background-color: #514f55;
+}
+.conTable .tableData .opsi .userDetailButton:hover{
+    background-color: #39373b;
+}
+
+.conTable .tableData .opsi .userUpdateButton{
+    background-color: #6439ff;
+}
+.conTable .tableData .opsi .userUpdateButton:hover{
+    background-color: #4118d8;
+}
+
+.conTable .tableData .opsi .userDeleteButton{
+    background-color: rgb(238, 69, 69);
+}
+.conTable .tableData .opsi .userDeleteButton:hover{
+    background-color: red;
+}
+
+.conTable .buttonCreate .userAddButton{
+    text-decoration: none;
+    width: 150px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+    background-color: #514f55;
+    margin-left: 10%;
+    border: 1px solid black;
+}
+
+.conTable .buttonCreate{
+
+    margin: 30px 0;
+}
+
+.conTable .buttonCreate .userAddButton:hover{
+    background-color:  #6439ff;
+}
+
+.tableData{
+    margin: auto;
+    width: 80%;
+} */
+
+/* Akhir Table */
+
+/* Read */
+/* 
+.userShow {
+    display: flex;
+    justify-content: center;
+}
+
+.userShow .userShowButton{
+    padding: 5px;
+    margin-top: 30px;
+    width: 40%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.userShow .userShowButton .userShowTitle{
+    font-weight: 700;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.userShow .userShowButton .userShoeInfo{
+    margin-left: 10px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+
+.buttonBack{
+    display: flex;
+    justify-content:flex-end;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+
+.buttonBack button{
+    border-radius: 5px;
+    width: 100px;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: rgb(235, 230, 230);
+    background-color: #39373b;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.buttonBack button:hover{
+    background-color: #2a2233;
+} */
+
+/* Akhir Read */
+
+
+/* Edit */
+/* 
+.userUpdate{
+    display: flex;
+    justify-content: center;
+}
+
+.userUpdate .content{
+    padding: 10px;
+    margin-top: 30px;
+    width: 40%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.userUpdate .content .userUpdateTitle{
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.userUpdateForm{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.userUpdateItem label{
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.userUpdateItem .userUpdateInput{
+    border: none;
+    outline: none;
+    width: 500px;
+    height: 30px;
+    border-bottom: 1px solid gray;
+}
+
+.userUpdateItem{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.userUpdate .content .buttonUser{
+    display: flex;
+    justify-content:flex-end;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+
+.userUpdate .content .userUpdateButton,
+.userUpdate .content .userBackButton{
+    margin: 10px;
+    border-radius: 5px;
+    width: 100px;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: rgb(235, 230, 230);
+    background-color: #39373b;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.userUpdate .content .userUpdateButton:hover,
+.userUpdate .content .userBackButton:hover{
+    background-color: #514f55;
+} */
+
+/* Akhir Edit */
+
+
+/* Create User */
+/* 
+.containerCreate{
+    display: flex;
+    justify-content: center;
+}
+
+.containerCreate .content {
+    padding: 10px;
+    margin-top: 30px;
+    width: 60%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.containerCreate .content .newUserForm{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.containerCreate .content .newUserForm .newUserItem{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
+.containerCreate .content .newUserForm .newUserItem label{
+    margin-top: 10px;
+    margin-bottom: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    color: gray;
+}
+
+.containerCreate .content .newUserForm .newUserItem input{
+    height: 40px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.containerCreate .content .createButtton{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.containerCreate .content .createButtton .newUserButtonCreate,
+.containerCreate .content .createButtton .newUserButtonBack{
+    margin: 10px;
+    border-radius: 5px;
+    width: 100px;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: rgb(235, 230, 230);
+    background-color: #39373b;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.containerCreate .content .createButtton .newUserButtonCreate:hover,
+.containerCreate .content .createButtton .newUserButtonBack:hover{
+    background-color: #574568;
+} */
+
+/* Akhir Create */

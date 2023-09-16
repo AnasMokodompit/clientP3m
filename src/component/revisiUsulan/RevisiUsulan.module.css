@@ -1,0 +1,321 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    background-color: var(--bg-100)
+}
+
+.kanan{
+    flex: 6;
+}
+
+.content{
+    font-family: 'Roboto', sans-serif;
+    padding: 21px 20px 10px 20px;
+    min-height: 91vh;
+    border-radius: 10px 0 0 0;
+    background-color: var(--bg-content);
+}
+
+
+
+.conTable{
+    margin-top: 20px;
+    background-color: var(--bg-200);
+    border-radius: 5px;
+    padding: 20px 15px;
+}
+
+.conTable .buttonCreate{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    /* border: 1px solid black; */
+}
+
+.conTable .buttonCreate .entitas{
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    color: var(--text-100);
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.conTable .buttonCreate .entitas select{
+    border: 1px solid black;
+    margin: 0 7px;
+    border-radius: 5px;
+    padding: 3px;
+    outline: none;
+    border: 1px solid rgba(112, 111, 111, .5);
+}
+
+.conTable .buttonCreate .userAddButton{
+    text-decoration: none;
+    background-color: var(--primary-200);
+    color: rgb(255, 255, 255);
+    padding: 8px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(81, 75, 75, 0.2);
+}
+
+.conTable .buttonCreate .userAddButton:hover{
+    background-color: var(--primary-100);
+}
+
+.conTable table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* .conTable table::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.conTable table::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+} */
+
+.conTable table th{
+    padding: 20px 10px;
+    text-align: left;
+    font-size: 16px;
+    background-color: rgba(240, 240, 240, 0.941);
+}
+
+.conTable table th:nth-child(1){
+    text-align: center;
+}
+
+.conTable table th:nth-child(6){
+    text-align: center;
+}
+
+.conTable table td{
+    margin: 5px 0;
+    font-size: 15px;
+    color: var(--text-100);
+    padding: 3px 10px;
+}
+
+.conTable table tr{
+    border-bottom: 1px solid var(--text-100);
+}
+
+.conTable table td:nth-child(1){
+    text-align: center;
+}
+
+.conTable table td:nth-child(2){
+    max-width: 250px;
+    text-align: justify;
+}
+
+.conTable table td:nth-child(4){
+    font-size: 13.5px;
+    /* font-weight: 400; */
+}
+
+
+
+
+.conTable table td:nth-child(6){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.conTable table tbody tr:hover{
+    background-color: aliceblue;
+}
+
+.conTable table tbody tr:hover td{
+    color: var(--text-300);
+}
+
+.conTable table tbody tr:hover .stylePdf a{
+    color: var(--text-300);
+}
+
+.stylePdf a{
+    color: var(--clor-link);
+}
+
+
+.iconOptions{
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.icon1{
+    background-color: aquamarine;
+    border-radius: 5px;
+    color: rgb(45, 45, 145);
+}
+
+.icon1:hover{
+    background-color: rgb(98, 193, 161);
+}
+
+.icon4{
+    background-color: rgb(93, 92, 92);
+    color: white;
+    border-radius: 5px;
+}
+
+.icon4:hover{
+    background-color: rgb(156, 146, 146);
+}
+
+.icon3{
+    background-color: rgb(49, 140, 220);
+    color: white;
+    border-radius: 5px;
+}
+
+.icon3:hover{
+    background-color: rgb(22, 121, 208);
+}
+
+.icon2{
+    background-color: rgb(214, 111, 111);
+    color: white;
+    border-radius: 5px;
+}
+
+.icon2:hover{
+    background-color: rgb(199, 77, 77);
+}
+
+.diajukan{
+    max-width: 60px;
+    padding: 5px;
+    border-radius: 7px;
+    background-color: rgba(92, 182, 137, .3);
+    color: rgb(92, 182, 137);
+}
+
+.sedangDiNilai{
+    max-width: 100px;
+    padding: 4px;
+    border-radius: 7px;
+    background-color: rgba(23, 47, 179, 0.3);
+    color: rgb(32, 35, 82);
+}
+
+.nonAjukan{
+    max-width: 100px;
+    padding: 4px;
+    border-radius: 7px;
+    background-color: rgba(223, 185, 94, 0.3);
+    color: goldenrod;
+}
+
+.pagenation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 7px;
+    /* border: 1px solid black; */
+}
+
+.pagenation span {
+    font-size: 14px;
+    color: var(--text-100);
+}
+
+.page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page .before{
+    font-size: 17px;
+    text-align: center;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: var(--text-300);
+    background-color: rgb(183, 183, 183);
+    cursor: pointer;
+}
+
+.page .after{
+    font-size: 17px;
+    text-align: center;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: var(--text-300);
+    background-color: rgb(183, 183, 183);
+    cursor: pointer;
+}
+
+.page .number{
+    padding: 3px 10px;
+    border-radius: 4px;
+    color: var(--text-300);
+    background-color: rgba(92, 182, 137, .9);
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+.page .number:hover{
+    background-color: rgba(92, 182, 137, .7);
+
+}
+
+.page .before:hover,
+.page .after:hover{
+    background-color: rgb(150, 148, 148);
+}
+
+
+/* PopUp Action Menu */
+
+.buttonActionMenu{
+    position: fixed;
+    background-color: rgb(222, 219, 219);
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    right: 40px;
+    border-radius: 5px;
+}
+
+.buttonActionMenu .pdfUsulanPenelitian{
+    padding: 7px 15px;
+    border-radius: 5px;
+    color: rgb(112, 111, 111);
+}
+
+.buttonActionMenu .pdfUsulanPenelitian:hover{
+    background-color: gray;
+    color: white;
+}
+
+.buttonActionMenu .ajukanPenelitian{
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 5px;
+}
+
+.buttonActionMenu span:hover{
+    background-color: gray;
+    color: white;
+}
+
+/* Akhir */

@@ -1,0 +1,66 @@
+.containerCreate{
+    display: flex;
+    font-size: 15px;
+    margin-top: 20px;
+    /* border: 1px solid red;  */
+}
+
+.containerCreate .navbarAdd{
+    /* border: 1px solid red;  */
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-top: 10px;
+    height: max-content;
+    background-color: white;
+    margin-right: 20px;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,.3);
+    /* border-bottom: 1px solid rgba(139, 125, 125, 0.3); */
+}
+
+.containerCreate .navbarAdd .navbarItem{
+    font-size: 13px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.containerCreate .navbarAdd .navbarActive{
+    /* background-color: rgba(240, 240, 240, 0.941); */
+    background-color: #eee6e6;
+    border-right: 3px solid black;
+}
+
+.containerCreate .navbarAdd .navbarItem span{
+    /* border: 1px solid black; */
+    padding: 7px 0px 7px 0px;
+    cursor: pointer;
+}
+
+.containerCreate .content{
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, .7);
+}
+
+.createButtton{
+    margin-top: 30px;
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+
+    /* border: 1px solid black; */
+}
+
+.createButtton input{
+    cursor: pointer;
+    padding: 7px 15px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 2px rgba(139, 125, 125, 0.3);
+    background-color: rgb(66, 201, 104);
+}
+
