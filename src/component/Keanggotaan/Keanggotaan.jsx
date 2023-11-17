@@ -26,7 +26,7 @@ function Keaggotaan() {
     const hendleCekProfile = (id, opsi, judul) => {
         const decode = jwt(dataLogin.dataLogin.token)
 
-        axios.get(`http://localhost:3005/api/users/${decode.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users/${decode.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             if (!res.data.data?.username || !res.data.data?.name || !res.data.data?.nomor_tlp || !res.data.data?.jurusanId || !res.data.data?.prodiId || !res.data.data?.email || !res.data.data?.pendidikan_terakhir || !res.data.data?.jabatan_fungsional || !res.data.data?.sinta || !res.data.data?.jnsKelaminName || !res.data.data?.tempat_lahir || !res.data.data?.alamat || !res.data.data?.tanggalLahir || !res.data.data?.profile_picture || (!res.data.data?.nidn && !res.data.data?.nim)) {
                 alert('Data User Belum Di Lengkapi')
@@ -52,7 +52,7 @@ function Keaggotaan() {
 
     // Penelitian
     const getAllDataPenelitian = () => {
-        axios.get(`http://localhost:3005/api/penelitian/keanggotaan?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/keanggotaan?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPenelitian(res.data.data)
             console.log(res.data.data)
@@ -64,7 +64,7 @@ function Keaggotaan() {
     const hendleUpdateStatusPartisipasiPenelitian = (id, statusPartisipasi, judul) => {
 
         // console.log(id, judul, statusPartisipasi)
-        axios.patch(`http://localhost:3005/api/penelitian/statusPartisipasi/${id}`, 
+        axios.patch(`${process.env.REACT_APP_BASE_API}/penelitian/statusPartisipasi/${id}`, 
             {statusPartisipasi:statusPartisipasi, judul:judul},
             { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((tes) => {
@@ -77,7 +77,7 @@ function Keaggotaan() {
 
     // Pengabdian
     const getAllDataPengabdian = () => {
-        axios.get(`http://localhost:3005/api/pengabdian/keanggotaan?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/keanggotaan?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPengabdian(res.data.data)
             console.log(res.data.data)
@@ -89,7 +89,7 @@ function Keaggotaan() {
     const hendleUpdateStatusPartisipasiPengabdian = (id, statusPartisipasi, judul) => {
 
         // console.log(id, judul, statusPartisipasi)
-        axios.patch(`http://localhost:3005/api/pengabdian/statusPartisipasi/${id}`, 
+        axios.patch(`${process.env.REACT_APP_BASE_API}/pengabdian/statusPartisipasi/${id}`, 
             {statusPartisipasi:statusPartisipasi, judul:judul},
             { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((tes) => {

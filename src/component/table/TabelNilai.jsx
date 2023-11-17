@@ -35,7 +35,7 @@ function TabelNilai() {
 
 
     const getAllPenelitian = () => {
-        axios.get(`http://localhost:3005/api/penelitian/nilai?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/nilai?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setDataPenelitian(res.data.data)
@@ -45,7 +45,7 @@ function TabelNilai() {
     }
     
     const getAllPengabdian = () => {
-        axios.get(`http://localhost:3005/api/pengabdian/nilai?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/nilai?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setDataPengabdian(res.data.data)

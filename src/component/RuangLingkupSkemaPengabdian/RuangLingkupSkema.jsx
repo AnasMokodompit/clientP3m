@@ -27,7 +27,7 @@ function RuangLingkupSkema() {
 
     const hendlegetAllSkema = () => {
 
-        axios.get(`http://localhost:3005/api/skemaPengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/skemaPengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataSkema(res.data.data)
         }).catch((err) => {
@@ -36,7 +36,7 @@ function RuangLingkupSkema() {
     }
 
     const hendlegetAllruangLingkupSkemaPengabdian = () => {
-        axios.get(`http://localhost:3005/api/ruangLingkupSkemaPengabdian?page=${page}&row=${row}&searchSkema=${searchSkema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/ruangLingkupSkemaPengabdian?page=${page}&row=${row}&searchSkema=${searchSkema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setJumlahruangLingkupSkemaPengabdian(res.data.data.length)
             setDataRuangLingkupSkemaPengabdian(res.data.data)
@@ -48,7 +48,7 @@ function RuangLingkupSkema() {
     const hendleEditruangLingkupSkemaPengabdian = (id) => {
         setId(id)
 
-        axios.get(`http://localhost:3005/api/ruangLingkupSkemaPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/ruangLingkupSkemaPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setRuangLingkupSkemaPengabdian(res.data.data.name)
             setSkema(res.data.data.skema)
@@ -60,7 +60,7 @@ function RuangLingkupSkema() {
 
     const hendleDeleteruangLingkupSkemaPengabdian = (id) => {
 
-        axios.delete(`http://localhost:3005/api/ruangLingkupSkemaPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.delete(`${process.env.REACT_APP_BASE_API}/ruangLingkupSkemaPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then(() => {
             hendlegetAllruangLingkupSkemaPengabdian()
         }).catch((err) => {
@@ -86,14 +86,14 @@ function RuangLingkupSkema() {
         }
 
         if (popupruangLingkupSkemaPengabdian === 'TambahruangLingkupSkemaPengabdian') {
-            axios.post(`http://localhost:3005/api/ruangLingkupSkemaPengabdian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/ruangLingkupSkemaPengabdian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendlegetAllruangLingkupSkemaPengabdian()
             }).catch((err) => {
                 console.log(err)
             })
         }else{
-            axios.patch(`http://localhost:3005/api/ruangLingkupSkemaPengabdian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/ruangLingkupSkemaPengabdian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendlegetAllruangLingkupSkemaPengabdian()
             }).catch((err)=> {

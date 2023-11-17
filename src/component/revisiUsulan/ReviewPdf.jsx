@@ -13,7 +13,7 @@ function ReviewPdf() {
 
     const hendleCekPdf = () => {
         if (idPDF?.id) {
-            axios.get(`http://localhost:3005/api/dokumen/${idPDF.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/dokumen/${idPDF.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setPdfName(res.data.data?.urlPdf)
                 console.log(res.data.data)

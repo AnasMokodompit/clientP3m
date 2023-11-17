@@ -37,7 +37,7 @@ function TableAnggotaPenelitianDosen() {
         // console.log(decode.roleId)
         setRoleId(decode.roleId)
 
-        axios.get(`http://localhost:3005/api/users/${decode.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users/${decode.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPengusul(res.data.data)
         })
@@ -49,7 +49,7 @@ function TableAnggotaPenelitianDosen() {
         setListName([])
         setName(name)
 
-        axios.get(`http://localhost:3005/api/users?name=${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users?name=${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataDosenAddAnggota(res.data.data)
         }).catch((err) => {
@@ -58,7 +58,7 @@ function TableAnggotaPenelitianDosen() {
     }
 
     const hendleSearchName = (e) => {
-        axios.get(`http://localhost:3005/api/users?name=${e.target.value}&Role=3`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users?name=${e.target.value}&Role=3`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setListName(res.data.data)
         }).catch((err) => {
@@ -156,7 +156,7 @@ function TableAnggotaPenelitianDosen() {
                 statusPartisipasi: 0
             }
             
-            axios.post(`http://localhost:3005/api/anggotaPenelitian`, dataCreatePartisipasiPenelitianDosen, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian`, dataCreatePartisipasiPenelitianDosen, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleEditPenelitian()
             }).catch((err) => {
@@ -174,7 +174,7 @@ function TableAnggotaPenelitianDosen() {
                 statusPartisipasi: 0
             }
             
-            axios.post(`http://localhost:3005/api/anggotaPengabdian`, dataCreatePartisipasiPengabdianDosen, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian`, dataCreatePartisipasiPengabdianDosen, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleEditPengabdian()
             }).catch((err) => {
@@ -189,7 +189,7 @@ function TableAnggotaPenelitianDosen() {
                 jabatan: peranDosen,
                 tugasdlmPengabdian: tugas
             }
-            axios.patch(`http://localhost:3005/api/anggotaPengabdian/${idAnggotaPenelitian}?judulPengabdian=${judulPengabdian}`,dataUpdatePartisipasiPengabdianDosen, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian/${idAnggotaPenelitian}?judulPengabdian=${judulPengabdian}`,dataUpdatePartisipasiPengabdianDosen, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendleEditPengabdian()
             }).catch((err) => {
@@ -204,7 +204,7 @@ function TableAnggotaPenelitianDosen() {
                 jabatan: peranDosen,
                 tugasdlmPenlitian: tugas
             }
-            axios.patch(`http://localhost:3005/api/anggotaPenelitian/${idAnggotaPenelitian}?judulPenelitian=${judulPenelitian}`,dataUpdatePartisipasiPenelitianDosen, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian/${idAnggotaPenelitian}?judulPenelitian=${judulPenelitian}`,dataUpdatePartisipasiPenelitianDosen, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendleEditPenelitian()
             }).catch((err) => {
@@ -221,7 +221,7 @@ function TableAnggotaPenelitianDosen() {
 
     const hendleDeleteAnggotaDosen = (name) => {
         if (pathname === `/data-penelitian/Edit/${id}`) {
-            axios.delete(`http://localhost:3005/api/anggotaPenelitian/${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.delete(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian/${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendleEditPenelitian()
             }).catch((err) => {
@@ -234,7 +234,7 @@ function TableAnggotaPenelitianDosen() {
             setTugas('')
             setDataDosenAddAnggota('')
         }else if (pathname === `/data-pengabdian/Edit/${id}`) {
-            axios.delete(`http://localhost:3005/api/anggotaPengabdian/${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.delete(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian/${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendleEditPengabdian()
             }).catch((err) => {
@@ -254,7 +254,7 @@ function TableAnggotaPenelitianDosen() {
     const hendleEditAnggotaDosen = async (name) => {
 
         if (pathname === `/data-penelitian/Edit/${id}`) {
-            axios.get(`http://localhost:3005/api/anggotaPenelitian/${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian/${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataDosenAddAnggota(res.data.data)
 
@@ -266,7 +266,7 @@ function TableAnggotaPenelitianDosen() {
             })
 
         }else if (pathname === `/data-pengabdian/Edit/${id}`) {
-            axios.get(`http://localhost:3005/api/anggotaPengabdian/${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian/${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataDosenAddAnggota(res.data.data)
                 
@@ -280,7 +280,7 @@ function TableAnggotaPenelitianDosen() {
             
             const DataEdit = await dataSimpanAnggotaDosen.filter((data) => data.nameUser === name )
     
-            axios.get(`http://localhost:3005/api/users?name=${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/users?name=${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataDosenAddAnggota(res.data.data)
             })
@@ -306,10 +306,10 @@ function TableAnggotaPenelitianDosen() {
         setRoleId(decode.roleId)
 
 
-        await axios.get(`http://localhost:3005/api/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        await axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
 
-            axios.get(`http://localhost:3005/api/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setPartisipasiDosen(res.data.data[0])
             }).catch((error) => {
@@ -329,10 +329,10 @@ function TableAnggotaPenelitianDosen() {
         setRoleId(decode.roleId)
 
 
-        await axios.get(`http://localhost:3005/api/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        await axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
 
-            axios.get(`http://localhost:3005/api/anggotaPengabdian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setPartisipasiDosen(res.data.data[0])
             }).catch((error) => {

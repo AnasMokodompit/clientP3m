@@ -29,7 +29,7 @@ function JurusanProdi() {
     // Jurusan
 
     const hendlegetAllJurusan = () => {
-        axios.get(`http://localhost:3005/api/jurusan?page=${page}&row=${row}&searchName=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/jurusan?page=${page}&row=${row}&searchName=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setJumlahDataJurusan(res.data.data.length)
             setDataJurusan(res.data.data)
@@ -45,14 +45,14 @@ function JurusanProdi() {
         }
 
         if (popupJurusan === 'TambahJurusan') {
-            axios.post(`http://localhost:3005/api/jurusan`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/jurusan`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendlegetAllJurusan()
             }).catch((err) => {
                 console.log(err)
             })
         }else{
-            axios.patch(`http://localhost:3005/api/jurusan/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/jurusan/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendlegetAllJurusan()
             }).catch((err)=> {
@@ -67,7 +67,7 @@ function JurusanProdi() {
     const hendleEditJurusan = (id) => {
         setId(id)
 
-        axios.get(`http://localhost:3005/api/jurusan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/jurusan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setJurusan(res.data.data.name)
         }).catch((err)=> {
@@ -76,7 +76,7 @@ function JurusanProdi() {
     }
 
     const hendleDeleteJurusan = (id) => {
-        axios.delete(`http://localhost:3005/api/jurusan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.delete(`${process.env.REACT_APP_BASE_API}/jurusan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then(() => {
             hendlegetAllJurusan()
         }).catch((err) => {
@@ -98,7 +98,7 @@ function JurusanProdi() {
     // Prodi
 
     const hendlegetAllProdi = () => {
-        axios.get(`http://localhost:3005/api/prodi?page=${page}&row=${row}&searchName=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/prodi?page=${page}&row=${row}&searchName=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setJumlahDataProdi(res.data.data.length)
             setDataProdi(res.data.data)
@@ -115,14 +115,14 @@ function JurusanProdi() {
         }
 
         if (popupJurusan === 'TambahJurusan') {
-            axios.post(`http://localhost:3005/api/prodi`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/prodi`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendlegetAllProdi()
             }).catch((err) => {
                 console.log(err)
             })
         }else{
-            axios.patch(`http://localhost:3005/api/prodi/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/prodi/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendlegetAllProdi()
             }).catch((err)=> {
@@ -138,7 +138,7 @@ function JurusanProdi() {
     const hendleEditProdi = (id) => {
         setId(id)
 
-        axios.get(`http://localhost:3005/api/prodi/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/prodi/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setProdi(res.data.data.name)
             setJurusan(res.data.data.nameJurusan)
@@ -148,7 +148,7 @@ function JurusanProdi() {
     }
 
     const hendleDeleteProdi = (id) => {
-        axios.delete(`http://localhost:3005/api/prodi/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.delete(`${process.env.REACT_APP_BASE_API}/prodi/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then(() => {
             hendlegetAllProdi()
         }).catch((err) => {

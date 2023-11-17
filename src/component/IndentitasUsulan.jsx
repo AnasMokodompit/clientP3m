@@ -1,13 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import style from './IdentitasUsulan.module.css'
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import jwt from 'jwt-decode'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { AddData, AddDataPengabdian } from '../config/actions/DataActionMahasiswa';
 import { saveDataAnggotaDosen } from '../config/actions/DataActionDosen';
-import UsulanProposal from './UsulanProposal/Usulan';
-import {saveAddPdf} from '../config/actions/SavePdfAction'
 
 
 
@@ -50,14 +48,14 @@ function  IdentitaUsulan(prosp) {
         // setId(decode.roleId) 
 
         if (decode.roleId !== 1) {     
-            axios.get(`http://localhost:3005/api/users/${decode.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/users/${decode.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataUser(res.data.data)
             })
         }else{
-            await axios.get(`http://localhost:3005/api/penelitian/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            await axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then((res) => {
-                    axios.get(`http://localhost:3005/api/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                    axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                     .then((res) => {
                         setDataKetuaPenelitian(res.data.data[0][0])
                     }).catch((error) => {
@@ -132,7 +130,7 @@ function  IdentitaUsulan(prosp) {
     // Edit Penelitian
 
     const hendleEditPenelitian = () => {
-        axios.get(`http://localhost:3005/api/penelitian/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setJudul(res.data.data.judul)
@@ -157,14 +155,14 @@ function  IdentitaUsulan(prosp) {
 
     // Edit Pengabdian
     const hendleEditPengabdian = () => {
-        axios.get(`http://localhost:3005/api/pengabdian/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data.temaBidangFokus)
             setJudul(res.data.data.judul)
             setAbstrak(res.data.data.abstrak)
             setSkema(res.data.data.skema)
             // if (res.data.data?.skema) {
-            //     axios.get(`http://localhost:3005/api/ruangLingkupSkemaPengabdian?skemaPengabdian=${res.data.data.skema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            //     axios.get(`${process.env.REACT_APP_BASE_API}/ruangLingkupSkemaPengabdian?skemaPengabdian=${res.data.data.skema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             //     .then((res) => {
             //         setDataRuangLingkupDatabase(res.data.data)
             //     }).catch((err) => {
@@ -202,7 +200,7 @@ function  IdentitaUsulan(prosp) {
 
     const hendleGetSkema = () => {
         if (pathname === "/data-penelitian/Add" || pathname === `/data-penelitian/Edit/${idEdit.id}`) { 
-            axios.get(`http://localhost:3005/api/skemaPenelitian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/skemaPenelitian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataSkemaDatabase(res.data.data)
             }).catch((err) => {
@@ -210,7 +208,7 @@ function  IdentitaUsulan(prosp) {
             })
   
         }else{
-            axios.get(`http://localhost:3005/api/skemaPengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/skemaPengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataSkemaDatabase(res.data.data)
             }).catch((err) => {
@@ -220,7 +218,7 @@ function  IdentitaUsulan(prosp) {
     }
 
     const hendleCekRuangLingkup = (nameSkema) => {
-        axios.get(`http://localhost:3005/api/ruangLingkupSkemaPengabdian?skemaPengabdian=${nameSkema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/ruangLingkupSkemaPengabdian?skemaPengabdian=${nameSkema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataRuangLingkupDatabase(res.data.data)
         }).catch((err) => {

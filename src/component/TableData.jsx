@@ -6,7 +6,6 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import jwt from 'jwt-decode';
 import dateFormat from "dateformat"
-import { ToastContainer, toast } from "react-toastify"
 
 
 
@@ -48,7 +47,7 @@ function TableData() {
         const decode = jwt(dataLogin.dataLogin.token)
         setRoleId(decode.roleId) 
 
-        axios.get(`http://localhost:3005/api/users/${decode.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users/${decode.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataUser(res.data.data)
             setJabatanKampus(res.data.data?.jabtan_kampus)
@@ -59,7 +58,7 @@ function TableData() {
     // For Data Catatan Harian
 
     const getAllDataCatatanHarian = () => {
-        axios.get(`http://localhost:3005/api/catatanHarian?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/catatanHarian?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataCatatanHarian(res.data.data)
             console.log(res.data.data)
@@ -69,7 +68,7 @@ function TableData() {
     }
 
     const hendleReadCatatanHarian = (id) => {
-        axios.get(`http://localhost:3005/api/catatanHarian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/catatanHarian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setKegiatan(res.data.data.kegiatan)
@@ -89,7 +88,7 @@ function TableData() {
     const hendleEditCatatanHarian = (id) => {
 
         setId(id)
-        axios.get(`http://localhost:3005/api/catatanHarian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/catatanHarian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setKegiatan(res.data.data.kegiatan)
@@ -107,7 +106,7 @@ function TableData() {
     }
 
     const handleDeleteCatatanHarian = (id) => {
-        axios.delete(`http://localhost:3005/api/catatanHarian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.delete(`${process.env.REACT_APP_BASE_API}/catatanHarian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then(() => {
             getAllDataCatatanHarian()
         }).catch((err) => {
@@ -134,7 +133,7 @@ function TableData() {
                 console.log(key+" "+value)
               });
 
-            axios.post(`http://localhost:3005/api/catatanHarian?`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/catatanHarian?`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 getAllDataCatatanHarian()
             }).catch((err) => {
@@ -151,7 +150,7 @@ function TableData() {
             formData.append('partisipasiUsulanId', Number(partisipasiUsulanId))
 
 
-            axios.patch(`http://localhost:3005/api/catatanHarian/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}} )
+            axios.patch(`${process.env.REACT_APP_BASE_API}/catatanHarian/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}} )
             .then(() => {
                 getAllDataCatatanHarian()
             }).catch((err) => {
@@ -187,7 +186,7 @@ function TableData() {
         let nameJadwal = "Pemasukan Usulan"
         let pesanError = ""
 
-        axios.get(`http://localhost:3005/api/penJadwalan?searchJudulJadwal=${nameJadwal}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penJadwalan?searchJudulJadwal=${nameJadwal}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             if (res.data.data.length === 0) {
@@ -207,7 +206,7 @@ function TableData() {
                 return alert(pesanError)
             }else{
     
-                axios.get(`http://localhost:3005/api/users/${decode.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.get(`${process.env.REACT_APP_BASE_API}/users/${decode.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then((res) => {
                     if (!res.data.data?.username || !res.data.data?.name || !res.data.data?.nomor_tlp || !res.data.data?.jurusanId || !res.data.data?.prodiId || !res.data.data?.email || !res.data.data?.pendidikan_terakhir || !res.data.data?.jabatan_fungsional || !res.data.data?.sinta || !res.data.data?.jnsKelaminName || !res.data.data?.tempat_lahir || !res.data.data?.alamat || !res.data.data?.tanggalLahir || !res.data.data?.profile_picture || (!res.data.data?.nidn && !res.data.data?.nim)) {
                         alert('Data User Belum Di Lengkapi')
@@ -231,7 +230,7 @@ function TableData() {
         setRoleId(decode.roleId)
 
         if (decode.roleId === 4 || decode.roleId === 1) {
-            axios.get(`http://localhost:3005/api/penelitian?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/penelitian?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataPenelitian(res.data.data)
             }).catch((err) => {
@@ -239,7 +238,7 @@ function TableData() {
             })
         }
         if (decode.roleId === 3 || decode.roleId === 2) {
-            axios.get(`http://localhost:3005/api/penelitian/usulan?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/usulan?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataPenelitian(res.data.data)
             }).catch((err)=> {
@@ -252,7 +251,7 @@ function TableData() {
         hendleCekProfile()
 
 
-        axios.get(`http://localhost:3005/api/penelitian/prodi?page=${page}&row=${row}&searchJudul=${searchName}&id_prodi=${id_prodi}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/prodi?page=${page}&row=${row}&searchJudul=${searchName}&id_prodi=${id_prodi}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setDataPenelitian(res.data.data)
@@ -263,7 +262,7 @@ function TableData() {
     }
 
     const hendleCekUsulanProdiPengabdian = (id_prodi) => {
-        axios.get(`http://localhost:3005/api/pengabdian/prodi?page=${page}&row=${row}&searchJudul=${searchName}&id_prodi=${id_prodi}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/prodi?page=${page}&row=${row}&searchJudul=${searchName}&id_prodi=${id_prodi}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setDataPengabdian(res.data.data)
@@ -274,7 +273,7 @@ function TableData() {
     }
 
     const hendleDeletePenelitian = (id) => {
-        axios.delete(`http://localhost:3005/api/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}}).
+        axios.delete(`${process.env.REACT_APP_BASE_API}/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}}).
         then(()=>{
             getAllDataPenelitian()
         }).catch((err)=>{
@@ -299,7 +298,7 @@ function TableData() {
         const data = {
             statusPenelitian: 1
         }
-        axios.patch(`http://localhost:3005/api/penelitian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.patch(`${process.env.REACT_APP_BASE_API}/penelitian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             getAllDataPenelitian()
         }).catch((err) => {
@@ -316,7 +315,7 @@ function TableData() {
         setRoleId(decode.roleId)
 
         if (decode.roleId === 4 || decode.roleId === 1) {
-            axios.get(`http://localhost:3005/api/pengabdian?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataPengabdian(res.data.data)
             }).catch((err) => {
@@ -324,7 +323,7 @@ function TableData() {
             })
         }
         if (decode.roleId === 3 || decode.roleId === 2) {
-            axios.get(`http://localhost:3005/api/pengabdian/usulan?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/usulan?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataPengabdian(res.data.data)
             }).catch((err)=> {
@@ -334,7 +333,7 @@ function TableData() {
     }
 
     const hendleDeletePengabdian = (id) => {
-        axios.delete(`http://localhost:3005/api/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}}).
+        axios.delete(`${process.env.REACT_APP_BASE_API}/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}}).
         then(()=>{
             getAllDataPengabdian()
         }).catch((err)=>{
@@ -345,7 +344,7 @@ function TableData() {
     // Akhir 
 
     const getAllPenelitianByStatusPenelian = () => {
-        axios.get(`http://localhost:3005/api/penelitian/catatanHarian?statusPenelitian=5`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/catatanHarian?statusPenelitian=5`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPenelitianDisetujuiUsulan(res.data.data)
             // console.log(res.data.data)
@@ -356,7 +355,7 @@ function TableData() {
     }
 
     const getAllPengabdianByStatusPengabdian = () => {
-        axios.get(`http://localhost:3005/api/pengabdian/catatanHarian?statusPengabdian=5`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/catatanHarian?statusPengabdian=5`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPengabdianDisetujuiUsulan(res.data.data)
             // console.log(res.data.data)
@@ -371,7 +370,7 @@ function TableData() {
         const data = {
             statusPengabdian: 1
         }
-        axios.patch(`http://localhost:3005/api/pengabdian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.patch(`${process.env.REACT_APP_BASE_API}/pengabdian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             getAllDataPengabdian()
         }).catch((err) => {

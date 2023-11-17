@@ -8,7 +8,6 @@ import { useEffect } from "react"
 import jwt from 'jwt-decode';
 import { useDispatch, useSelector } from "react-redux"
 import axios from "axios"
-import pdf from './MAKALAH_AYA.pdf'
 import {saveAddPdf, EditDataPdf, DeleteDataPdf, ResetDatSavePdf} from '../../config/actions/SavePdfAction'
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,12 +17,10 @@ import 'react-toastify/dist/ReactToastify.css';
 function Revisi() {
     const { dataLogin } = useSelector(tes => tes.p3m)
     const {optionsPdf} = useSelector(tes => tes.dataPdf)
-    const [dataPenelitianRevisi, setDataPenelitianRevisi] = useState([])
     const [penelitian, setPenelitian] = useState([])
     const [pengabdian, setPengabdian] = useState([])
     const {pathname} = useLocation()
     const [roleId, setRoleId] = useState()
-    const [opsiMenu, setOpsiMenu] = useState("0")
     const dispatch = useDispatch()
 
 
@@ -37,7 +34,7 @@ function Revisi() {
     const getAllDataPenelitian = () => {
         const decode = jwt(dataLogin.dataLogin.token)
         setRoleId(decode.roleId)
-            axios.get('http://localhost:3005/api/penelitian/usulan?statusRevisi=true', { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/usulan?statusRevisi=true`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 console.log(res.data.data)
                 setPenelitian(res.data.data)
@@ -49,7 +46,7 @@ function Revisi() {
     const getAllDataPengabdian = () => {
         const decode = jwt(dataLogin.dataLogin.token)
         setRoleId(decode.roleId)
-            axios.get('http://localhost:3005/api/pengabdian/usulan?statusRevisi=true', { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/usulan?statusRevisi=true`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 console.log(res.data.data)
                 setPengabdian(res.data.data)
@@ -75,7 +72,7 @@ function Revisi() {
             formData.append('usulan_pdf_revisi', cekPdf[0]?.pictureAsFile)
     
     
-            axios.patch(`http://localhost:3005/api/dokumen/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/dokumen/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 if (pathname === "/data-penelitian/revisi") {
                     getAllDataPenelitian()

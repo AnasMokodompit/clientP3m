@@ -61,7 +61,7 @@ function TentukanReviwer() {
     // Laporan
     const hendleGetAllAssesmentLaporan = () => {
         console.log('tes')
-        axios.get(`http://localhost:3005/api/laporan/assesment?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/assesment?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setAssesmentLaporan(res.data.data)
         }).catch((err) => {
@@ -77,7 +77,7 @@ function TentukanReviwer() {
 
     const hendleEditTentuReviewer = (id) => {
 
-        axios.get(`http://localhost:3005/api/laporan/reviewer/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/reviewer/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setReviewer(res.data.data)
         }).catch((err) => {
@@ -104,7 +104,7 @@ function TentukanReviwer() {
         
             }
 
-            axios.post(`http://localhost:3005/api/laporan/review` , Data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/laporan/review` , Data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleGetAllAssesmentLaporan()
             }).catch((err)=> {
@@ -141,7 +141,7 @@ function TentukanReviwer() {
 
 
 
-            axios.patch(`http://localhost:3005/api/laporan/review`, dataOVerAll, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/laporan/review`, dataOVerAll, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleGetAllAssesmentLaporan()
             }).catch((err) => {
@@ -170,7 +170,7 @@ function TentukanReviwer() {
 
         const index = e.target.id;
 
-        axios.get(`http://localhost:3005/api/users?name=${e.target.value}&Role=2`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users?name=${e.target.value}&Role=2`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setListName(res.data.data)
             console.log(res.data.data)
@@ -219,7 +219,7 @@ function TentukanReviwer() {
 
     const hendleEditReviewerByLaporan = (id) => {
         
-        axios.get(`http://localhost:3005/api/laporan/reviewer/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/reviewer/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setIdReviewLaporan(res.data.data.id)
@@ -239,7 +239,7 @@ function TentukanReviwer() {
         }
 
 
-        axios.patch(`http://localhost:3005/api/laporan/reviewer/${idReviewLaporan}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.patch(`${process.env.REACT_APP_BASE_API}/laporan/reviewer/${idReviewLaporan}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             toast(`Berhasil Mengubah Nilai`)
             hendleGetAllAssesmentLaporan()

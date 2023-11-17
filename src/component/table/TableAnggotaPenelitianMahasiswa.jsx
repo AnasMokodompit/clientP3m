@@ -92,7 +92,7 @@ function TableAnggotaPenelitianMahasiswa() {
             }
 
 
-            axios.post(`http://localhost:3005/api/anggotaPenelitian`, dataCreatePartisiMahasiswa, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}} )
+            axios.post(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian`, dataCreatePartisiMahasiswa, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}} )
             .then((res) => {
                 hendleEditPenelitian()
             }).catch((err)=> {
@@ -119,7 +119,7 @@ function TableAnggotaPenelitianMahasiswa() {
             }
 
 
-            axios.post(`http://localhost:3005/api/anggotaPengabdian`, dataCreatePartisiMahasiswa, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}} )
+            axios.post(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian`, dataCreatePartisiMahasiswa, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}} )
             .then((res) => {
                 hendleEditPengabdian()
             }).catch((err)=> {
@@ -138,7 +138,7 @@ function TableAnggotaPenelitianMahasiswa() {
                 tugasdlmPengabdian: tugas
             }
 
-            axios.patch(`http://localhost:3005/api/anggotaPengabdian/${idUserForEdit}`, dataUpdatePartisipasiPengabdianMahasiswa, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian/${idUserForEdit}`, dataUpdatePartisipasiPengabdianMahasiswa, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleEditPengabdian()
             }).catch((err) => {
@@ -157,7 +157,7 @@ function TableAnggotaPenelitianMahasiswa() {
                 tugasdlmPenlitian: tugas
             }
 
-            axios.patch(`http://localhost:3005/api/anggotaPenelitian/${idUserForEdit}`, dataUpdatePartisipasiPenelitianMahasiswa, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian/${idUserForEdit}`, dataUpdatePartisipasiPenelitianMahasiswa, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleEditPenelitian()
             }).catch((err) => {
@@ -176,7 +176,7 @@ function TableAnggotaPenelitianMahasiswa() {
 
     const hendleEditAnggotaPenelitianMahasiswa =async (nim) => {
         if(pathname === `/data-penelitian/Edit/${id}`){
-            axios.get(`http://localhost:3005/api/anggotaPenelitian/${nim}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian/${nim}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setIdUserForEdit(res.data.data.id)
                 if (res?.data?.data?.user?.jurusan?.name) {
@@ -193,7 +193,7 @@ function TableAnggotaPenelitianMahasiswa() {
                 setTugas(res.data.data.tugasdlmPenlitian)
             })
         }else if (pathname === `/data-pengabdian/Edit/${id}`) {
-            axios.get(`http://localhost:3005/api/anggotaPengabdian/${nim}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian/${nim}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setIdUserForEdit(res.data.data.id)
                 if (res?.data?.data?.user?.jurusan?.name) {
@@ -231,7 +231,7 @@ function TableAnggotaPenelitianMahasiswa() {
     
     const hendleDeleteAnggotaPenelitianMahasiswa = (nim) => {
         if (pathname === `/data-penelitian/Edit/${id}`) {
-            axios.delete(`http://localhost:3005/api/anggotaPenelitian/${nim}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.delete(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian/${nim}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleEditPenelitian()
             }).catch((err)=> {
@@ -239,7 +239,7 @@ function TableAnggotaPenelitianMahasiswa() {
                 alert(err.response.data.message)
             })
         }else if (pathname === `/data-pengabdian/Edit/${id}`) {
-            axios.delete(`http://localhost:3005/api/anggotaPengabdian/${nim}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.delete(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian/${nim}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleEditPengabdian()
             }).catch((err)=> {
@@ -258,9 +258,9 @@ function TableAnggotaPenelitianMahasiswa() {
 
         setRoleId(decode.roleId)
 
-        await axios.get(`http://localhost:3005/api/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        await axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
-            axios.get(`http://localhost:3005/api/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setPartisipasiMahasiswa(res.data.data[1])
             }).catch((error) => {
@@ -278,9 +278,9 @@ function TableAnggotaPenelitianMahasiswa() {
 
         setRoleId(decode.roleId)
 
-        await axios.get(`http://localhost:3005/api/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        await axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
-            axios.get(`http://localhost:3005/api/anggotaPengabdian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setPartisipasiMahasiswa(res.data.data[1])
             }).catch((error) => {
@@ -292,7 +292,7 @@ function TableAnggotaPenelitianMahasiswa() {
     }
 
     const hendleSearchName = (e) => {
-        axios.get(`http://localhost:3005/api/users?name=${e.target.value}&Role=4`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users?name=${e.target.value}&Role=4`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setListName(res.data.data)
         }).catch((err) => {
@@ -306,7 +306,7 @@ function TableAnggotaPenelitianMahasiswa() {
 
         setNama(name)
         
-        axios.get(`http://localhost:3005/api/users?name=${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users?name=${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             if (res?.data?.data[0]?.nim !== null) {

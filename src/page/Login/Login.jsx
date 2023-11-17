@@ -25,7 +25,7 @@ function Login() {
             password: password
         }
 
-        axios.post(`http://localhost:3005/api/users/login`, login)
+        axios.post(`${process.env.REACT_APP_BASE_API}/users/login`, login)
         .then((res) => {
             
             dispatch(registerEmail(username, password))

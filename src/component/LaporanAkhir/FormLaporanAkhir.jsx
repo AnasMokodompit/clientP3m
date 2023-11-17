@@ -30,7 +30,7 @@ function FormLaporanAkhir() {
     
 
     const getAllPenelitianByStatusPenelian = () => {
-        axios.get(`http://localhost:3005/api/penelitian/laporan?statusPenelitian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/laporan?statusPenelitian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPenelitianDisetujuiUsulan(res.data.data)
         }).catch((err) => {
@@ -39,7 +39,7 @@ function FormLaporanAkhir() {
         
     }
     const getAllPengabdianByStatusPengabdian = () => {
-        axios.get(`http://localhost:3005/api/pengabdian/laporan?statusPengabdian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/laporan?statusPengabdian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPengabdianDisetujuiUsulan(res.data.data)
         }).catch((err) => {
@@ -49,7 +49,7 @@ function FormLaporanAkhir() {
 
 
     const hendleCekLaporanKemajuan = (searchName) => {
-        axios.get(`http://localhost:3005/api/laporan/kemajuan?searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan?searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataKemajuan(res.data.data)
             // console.log(res.data.data)
@@ -136,7 +136,7 @@ function FormLaporanAkhir() {
             // return 
 
         if (pathname === `/laporan-akhir/Edit/${idEdit.id}`) {
-            axios.patch(`http://localhost:3005/api/laporan/akhir/${idEdit.id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/laporan/akhir/${idEdit.id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 navigate('/laporan-akhir')
             }).catch((err) => {
@@ -149,7 +149,7 @@ function FormLaporanAkhir() {
             setTambahBiaya([])
             setIdDeleteBiaya([])
         }else{
-            axios.post(`http://localhost:3005/api/laporan/akhir`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/laporan/akhir`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 navigate('/laporan-akhir')
             }).catch((err) => {
@@ -178,7 +178,7 @@ function FormLaporanAkhir() {
     // Edit
 
     const hendleEditLaporanAkhir = () => {
-        axios.get(`http://localhost:3005/api/laporan/akhir/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/akhir/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             if (res.data.data.judulPenelitian) {
                 // console.log(res.data.data)

@@ -45,7 +45,7 @@ function Navbar() {
         if (dataLogin !== null) {
             const decode = jwt(dataLogin.dataLogin.token)
             
-            axios.get(`http://localhost:3005/api/users/${decode.id}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/users/${decode.id}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setPicture(res.data.data?.profile_picture)
     
@@ -57,7 +57,7 @@ function Navbar() {
 
 
     const henndleGetNotificationByUser = () => {
-        axios.get(`http://localhost:3005/api/notification`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/notification`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setJumlahNotification(res.data.data.filter(data => data.statusReadNotification !== true).length)
@@ -74,7 +74,7 @@ function Navbar() {
             statusReadNotification: true
         }
 
-        axios.patch(`http://localhost:3005/api/notification/${id}`, data, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.patch(`${process.env.REACT_APP_BASE_API}/notification/${id}`, data, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then(() => {
             henndleGetNotificationByUser()
         }).catch((err) => {

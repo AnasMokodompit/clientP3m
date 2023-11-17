@@ -33,7 +33,7 @@ function ReadUsulan() {
 
     // Penelitian
     const hendleReadPenelitian = () => {
-        axios.get(`http://localhost:3005/api/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setJudul(res.data.data.judul)
@@ -55,7 +55,7 @@ function ReadUsulan() {
 
     const hendleGetSkema = () => {
         if (pathname.substring(1, pathname.length - (id.length + 1)) === "data-penelitian") { 
-            axios.get(`http://localhost:3005/api/skemaPenelitian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/skemaPenelitian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataSkemaDatabase(res.data.data)
             }).catch((err) => {
@@ -63,7 +63,7 @@ function ReadUsulan() {
             })
   
         }else{
-            axios.get(`http://localhost:3005/api/skemaPengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/skemaPengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataSkemaDatabase(res.data.data)
             }).catch((err) => {
@@ -80,10 +80,10 @@ function ReadUsulan() {
         // setRoleId(decode.roleId)
 
 
-        await axios.get(`http://localhost:3005/api/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        await axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
 
-            axios.get(`http://localhost:3005/api/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setPartisipasiDosen(res.data.data[0])
                 console.log(res.data.data)
@@ -101,9 +101,9 @@ function ReadUsulan() {
 
         // setRoleId(decode.roleId) 
 
-        await axios.get(`http://localhost:3005/api/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        await axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
-            axios.get(`http://localhost:3005/api/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setPartisipasiMahasiswa(res.data.data[1])
             }).catch((error) => {
@@ -118,7 +118,7 @@ function ReadUsulan() {
     // Pengabdian
 
     const hendleReadPengabdian = () => {
-        axios.get(`http://localhost:3005/api/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setJudul(res.data.data.judul)
@@ -130,7 +130,7 @@ function ReadUsulan() {
             console.log(res.data.data.ruangLingkup)
             console.log(res.data.data.skema)
             if (res.data.data?.skema) {
-                axios.get(`http://localhost:3005/api/ruangLingkupSkemaPengabdian?skemaPengabdian=${res.data.data.skema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.get(`${process.env.REACT_APP_BASE_API}/ruangLingkupSkemaPengabdian?skemaPengabdian=${res.data.data.skema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then((res) => {
                     setDataRuangLingkupDatabase(res.data.data)
                     console.log(res.data.data)
@@ -154,10 +154,10 @@ function ReadUsulan() {
         // setRoleId(decode.roleId)
 
 
-        await axios.get(`http://localhost:3005/api/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        await axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
 
-            axios.get(`http://localhost:3005/api/anggotaPengabdian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setPartisipasiDosen(res.data.data[0])
                 console.log(res.data.data)
@@ -176,9 +176,9 @@ function ReadUsulan() {
 
         // setRoleId(decode.roleId) 
 
-        await axios.get(`http://localhost:3005/api/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        await axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
-            axios.get(`http://localhost:3005/api/anggotaPengabdian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setPartisipasiMahasiswa(res.data.data[1])
             }).catch((error) => {

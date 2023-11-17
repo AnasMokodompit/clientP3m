@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import jwt from 'jwt-decode'
-import { AddData, ResetDataAnggotaMahasiswa } from '../../config/actions/DataActionMahasiswa'
-import { ResetDataAnggotaDosen } from '../../config/actions/DataActionDosen'
 import axios from 'axios'
 
 function Sidebar() {
@@ -14,19 +12,13 @@ function Sidebar() {
     const [ id, setId] = useState()
     const {pathname} = useLocation()
     const navigate = useNavigate()
-    const idEdit = useParams()
     const dispatch = useDispatch()
     const [sideDrown, setSideDrown] = useState('0')
-    const [dataAkhir, setDataAkhir] = useState()
 
 
 
     const isMenu = () => {
         setToggle(!toggle)
-    }
-
-    const heandleSideDrop= () => {
-        setSideDrop(!sideDrop)
     }
 
     const hendleLogicSideDropDown = (data) => {
@@ -99,7 +91,7 @@ function Sidebar() {
         let pesanError = ""
         let dateLama =  ""
 
-        await axios.get(`http://localhost:3005/api/penJadwalan?searchJudulJadwal=${nameJadwal}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        await axios.get(`${process.env.REACT_APP_BASE_API}/penJadwalan?searchJudulJadwal=${nameJadwal}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             dateLama = new Date(res.data.data[0].tglAkhir).getTime()
             setDataAkhir(new Date(res.data.data[0].tglAkhir).getTime() - new Date().getTime())
@@ -128,11 +120,11 @@ function Sidebar() {
 
             if (hasil <= 0 && hasil >= -1000) {
                 console.log(hasil, 'Waktu Telah Berakhir')
-                axios.patch(`http://localhost:3005/api/penelitian/${id}`, {statusDibiayai: true}, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.patch(`${process.env.REACT_APP_BASE_API}/penelitian/${id}`, {statusDibiayai: true}, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then((res) => {
                     console.log(res.data.data)
                 })
-                axios.patch(`http://localhost:3005/api/pengabdian/${id}`, {statusDibiayai: true}, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.patch(`${process.env.REACT_APP_BASE_API}/pengabdian/${id}`, {statusDibiayai: true}, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then((res) => {
                     console.log(res.data.data)
                 })

@@ -2,7 +2,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import style from './AnggotaPenelitian.module.css'
 import TableAnggotaPenelitianMahasiswa from './table/TableAnggotaPenelitianMahasiswa'
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { AddData, AddDataPengabdian, ResetDataAnggotaMahasiswa } from '../config/actions/DataActionMahasiswa'
@@ -54,7 +53,7 @@ function AnggotaPenelitian() {
         })
 
 
-        axios.post("http://localhost:3005/api/penelitian", formData, {headers : { 'Authorization': `Bearer ${dataLogin.dataLogin.token}`}}    
+        axios.post(`${process.env.REACT_APP_BASE_API}/penelitian`, formData, {headers : { 'Authorization': `Bearer ${dataLogin.dataLogin.token}`}}    
         ).then((res) => {
             console.log(res.data.data)
             alert('Penelitian Berhasil Ditambahkan')
@@ -97,7 +96,7 @@ function AnggotaPenelitian() {
         formData.append('lamaKegiatan', dataInSave.lamaKegiatan)
         formData.append('usulan_pdf', dataInSave.pdf.pdfAsFile)
 
-        axios.patch(`http://localhost:3005/api/penelitian/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.patch(`${process.env.REACT_APP_BASE_API}/penelitian/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then(() => {
             alert('Penelitian Berhasil DiEdit')
 
@@ -155,7 +154,7 @@ function AnggotaPenelitian() {
         // return
 
 
-        axios.post("http://localhost:3005/api/pengabdian", formData, {headers : { 'Authorization': `Bearer ${dataLogin.dataLogin.token}`}}    
+        axios.post(`${process.env.REACT_APP_BASE_API}/pengabdian`, formData, {headers : { 'Authorization': `Bearer ${dataLogin.dataLogin.token}`}}    
         ).then((res) => {
             console.log(res.data.data)
             alert('Pengabdian Berhasil Ditambahkan')
@@ -195,7 +194,7 @@ function AnggotaPenelitian() {
         formData.append('lamaKegiatan', dataPengabdian.lamaKegiatan)
         formData.append('usulan_pdf', dataPengabdian.pdf.pdfAsFile)
 
-        axios.patch(`http://localhost:3005/api/pengabdian/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.patch(`${process.env.REACT_APP_BASE_API}/pengabdian/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then(() => {
             alert('Pengabdian Berhasil DiEdit')
 

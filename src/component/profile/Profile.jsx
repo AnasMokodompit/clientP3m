@@ -1,7 +1,6 @@
 import Navbar from "../navbar/Navbar"
 import Sidebar from "../sidebar/Sidenar"
 import style from './Profile.module.css'
-import img from '../../tes.jpg'
 import { useEffect } from "react"
 import { useState } from "react"
 import { useSelector } from "react-redux"
@@ -18,7 +17,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Profile() {
     const { dataLogin } = useSelector(tes => tes.p3m)
-    const {pathname} = useLocation()
     const [userName, setUserName] = useState('') 
     const [name, setName] = useState('') 
     const [nidn, setNidn] = useState('') 
@@ -54,12 +52,12 @@ function Profile() {
         const decode = jwt(dataLogin.dataLogin.token)
         setRoleId(decode.roleId)
 
-        axios.get(`http://localhost:3005/api/users/${decode.id}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users/${decode.id}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
 
             if (res?.data?.data?.jurusan?.name) {
                 
-                axios.get(`http://localhost:3005/api/prodi?nameJurusan=${res.data.data.jurusan.name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.get(`${process.env.REACT_APP_BASE_API}/prodi?nameJurusan=${res.data.data.jurusan.name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then((res) => {
                     setDataProdi(res.data.data)
                 }).catch((err) => {
@@ -127,7 +125,7 @@ function Profile() {
             console.log(err)
         })
 
-        axios.get(`http://localhost:3005/api/jurusan`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/jurusan`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataJurusan(res.data.data)
         }).catch((err) => {
@@ -178,7 +176,7 @@ function Profile() {
         formData.append('newPasswordOne', newPasswordOne)
         
         
-        axios.patch(`http://localhost:3005/api/users/${id}`, formData, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.patch(`${process.env.REACT_APP_BASE_API}/users/${id}`, formData, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             hendleCekUser()
             
@@ -217,7 +215,7 @@ function Profile() {
 
     const hendelGetProdiByJurusan = (name) => {
         if (name) {      
-            axios.get(`http://localhost:3005/api/prodi?nameJurusan=${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/prodi?nameJurusan=${name}`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDataProdi(res.data.data)
             }).catch((err) => {

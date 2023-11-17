@@ -65,7 +65,7 @@ function UsulanProposal(props) {
      // PDF
 
     const hendleGetPenelitian = () => {
-       axios.get(`http://localhost:3005/api/penelitian/${id.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+       axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/${id.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
       .then((res) => {
         // console.log(res.data.data)
         setDataPdf(res?.data?.data)
@@ -76,11 +76,11 @@ function UsulanProposal(props) {
         }
 
         // console.log(res.data.data)
-          axios.get(`http://localhost:3005/api/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+          axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPenelitian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
           .then((res) => {
               setNameJurusan(res.data.data[0][0]?.user?.jurusan.name)
               if (res.data.data[0][0]?.user?.jurusan.name) {
-                axios.get(`http://localhost:3005/api/users?jabatanKampus=Kepala Jurusan`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.get(`${process.env.REACT_APP_BASE_API}/users?jabatanKampus=Kepala Jurusan`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                   .then((res) => {
                     setDataKepalaJurusan(res.data.data)
                   }).catch((err)=> {
@@ -98,7 +98,7 @@ function UsulanProposal(props) {
     }
 
     const hendleGetPengabdian = () => {
-      axios.get(`http://localhost:3005/api/pengabdian/${id.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+      axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/${id.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
      .then((res) => {
        // console.log(res.data.data)
        setDataPdf(res?.data?.data)
@@ -109,11 +109,11 @@ function UsulanProposal(props) {
        }
 
        // console.log(res.data.data)
-         axios.get(`http://localhost:3005/api/anggotaPengabdian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+         axios.get(`${process.env.REACT_APP_BASE_API}/anggotaPengabdian?judul=${res.data.data.judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
          .then((res) => {
              setNameJurusan(res.data.data[0][0]?.user?.jurusan.name)
              if (res.data.data[0][0]?.user?.jurusan.name) {
-              axios.get(`http://localhost:3005/api/users?jabatanKampus=Kepala Jurusan`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+              axios.get(`${process.env.REACT_APP_BASE_API}/users?jabatanKampus=Kepala Jurusan`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then((res) => {
                   setDataKepalaJurusan(res.data.data)
                 }).catch((err)=> {
@@ -131,7 +131,7 @@ function UsulanProposal(props) {
    }
 
    const hendleKepalaP3M = () => {
-      axios.get(`http://localhost:3005/api/users?jabatanKampus=Kepala P3M`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+      axios.get(`${process.env.REACT_APP_BASE_API}/users?jabatanKampus=Kepala P3M`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
       .then((res) => {
         setDataKepalaP3M(res.data.data)
       }).catch((err)=> {

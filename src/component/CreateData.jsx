@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
-import axios from 'axios'
-import { Link, useNavigate, useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import style from './CreateData.module.css'
 import AnggotaPenelitian from './AnggotaPenelitian'
 import { useLocation } from 'react-router-dom';
@@ -9,7 +8,6 @@ import { useSelector } from 'react-redux'
 
 function CreateData() {
     const [ComponenDisplay, setComponenDisplay] = useState("IndetitasUsulan")
-    const navigate = useNavigate()
     const {pathname} = useLocation()
     const {id} = useParams()
     let {dataSimpanAnggotaDosen} = useSelector(tes => tes.partisiDosen)

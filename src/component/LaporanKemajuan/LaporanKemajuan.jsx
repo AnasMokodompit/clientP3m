@@ -41,7 +41,7 @@ function LaporanKemajuan() {
     }
 
     const getAllDataLaporanKemajuan = () => {
-        axios.get(`http://localhost:3005/api/laporan/kemajuan?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setJumlahData(res.data.data.length)
             setDataLaporanKemjuan(res.data.data)
@@ -53,7 +53,7 @@ function LaporanKemajuan() {
     }
 
     const hendleReadLaporanKemajuan = (id) => {
-        axios.get(`http://localhost:3005/api/laporan/kemajuan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setTahapKemajuan(res.data.data.tahanKemajuan)
@@ -69,7 +69,7 @@ function LaporanKemajuan() {
     }
 
     const getAllPenelitianByStatusPenelian = () => {
-        axios.get(`http://localhost:3005/api/penelitian/laporan?statusPenelitian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/laporan?statusPenelitian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPenelitianDisetujuiUsulan(res.data.data)
         }).catch((err) => {
@@ -78,7 +78,7 @@ function LaporanKemajuan() {
     }
 
     const getAllPengabdianByStatusPengabdian = () => {
-        axios.get(`http://localhost:3005/api/pengabdian/laporan?statusPengabdian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/laporan?statusPengabdian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPengabdianDisetujuiUsulan(res.data.data)
         }).catch((err) => {
@@ -130,7 +130,7 @@ function LaporanKemajuan() {
 
             //   return
 
-            axios.post(`http://localhost:3005/api/laporan/kemajuan`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 getAllDataLaporanKemajuan()
             }).catch((err) => {
@@ -144,7 +144,7 @@ function LaporanKemajuan() {
             formData.append('tahapKemajuan', tahapKemajuan)
             formData.append('laporan_kemajuan_pdf', pdf.pdfAsFile)
    
-            axios.patch(`http://localhost:3005/api/laporan/kemajuan/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}} )
+            axios.patch(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}} )
             .then(() => {
                 getAllDataLaporanKemajuan()
             }).catch((err) => {
@@ -161,7 +161,7 @@ function LaporanKemajuan() {
     const hendleEditLaporanKemajuan = (id) => {
 
         setId(id)
-        axios.get(`http://localhost:3005/api/laporan/kemajuan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             if (res.data.data.judulPenelitian) {
                 setJudul(res.data.data.judulPenelitian)
@@ -177,7 +177,7 @@ function LaporanKemajuan() {
     }
 
     const hendleDeleteLaporanKemajuan = (id) => {
-        axios.delete(`http://localhost:3005/api/laporan/kemajuan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.delete(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then(() => {
             getAllDataLaporanKemajuan()
         }).catch((err) => {

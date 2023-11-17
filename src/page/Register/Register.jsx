@@ -34,7 +34,7 @@ function Register() {
             roleId: role
         }
 
-        axios.post(`http://localhost:3005/api/users`, dataUserCreate, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.post(`${process.env.REACT_APP_BASE_API}/users`, dataUserCreate, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             toast(`User Berhasil Ditambahkan`)
             navigate('/login')

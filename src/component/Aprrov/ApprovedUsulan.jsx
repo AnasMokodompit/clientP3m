@@ -22,7 +22,7 @@ function ApprovedUsulan() {
 
     // Penelitian
     const getAllDataPenelitianAprrov = () => {
-        axios.get(`http://localhost:3005/api/penelitian/approv?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/approv?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPenelitianApprov(res.data.data)
             console.log(res.data.data)
@@ -34,7 +34,7 @@ function ApprovedUsulan() {
     const hendleUpdateStatusPenelitian = (id) => {
 
         // console.log(id, judul, statusPartisipasi)
-        axios.patch(`http://localhost:3005/api/penelitian/${id}`, 
+        axios.patch(`${process.env.REACT_APP_BASE_API}/penelitian/${id}`, 
             {statusPenelitian: 2},
             { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((tes) => {
@@ -47,7 +47,7 @@ function ApprovedUsulan() {
 
     // Pengabdian
     const getAllDataPengabdianAprrov = () => {
-        axios.get(`http://localhost:3005/api/pengabdian/approv?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/approv?page=${page}&row=${row}&searchJudul=${searchName}`,{ headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPengabdianApprov(res.data.data)
             console.log(res.data.data)
@@ -59,7 +59,7 @@ function ApprovedUsulan() {
     const hendleUpdateStatusPengabdian = (id) => {
 
         // console.log(id, judul, statusPartisipasi)
-        axios.patch(`http://localhost:3005/api/pengabdian/${id}`, 
+        axios.patch(`${process.env.REACT_APP_BASE_API}/pengabdian/${id}`, 
             {statusPengabdian: 2},
             { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((tes) => {

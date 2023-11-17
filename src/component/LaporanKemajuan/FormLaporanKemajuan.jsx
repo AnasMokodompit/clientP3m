@@ -29,7 +29,7 @@ function FormLaporanKemajuan() {
     
 
     const getAllPenelitianByStatusPenelian = () => {
-        axios.get(`http://localhost:3005/api/penelitian/laporan?statusPenelitian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/laporan?statusPenelitian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPenelitianDisetujuiUsulan(res.data.data)
         }).catch((err) => {
@@ -38,7 +38,7 @@ function FormLaporanKemajuan() {
     }
 
     const getAllPengabdianByStatusPengabdian = () => {
-        axios.get(`http://localhost:3005/api/pengabdian/laporan?statusPengabdian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/laporan?statusPengabdian=3`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataPengabdianDisetujuiUsulan(res.data.data)
         }).catch((err) => {
@@ -126,14 +126,14 @@ function FormLaporanKemajuan() {
             // return
 
         if (pathname === `/laporan-kemajuan/Edit/${idEdit.id}`) {
-            axios.patch(`http://localhost:3005/api/laporan/kemajuan/${idEdit.id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan/${idEdit.id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 navigate('/laporan-kemajuan')
             }).catch((err) => {
                 console.log(err)
             })
         }else{
-            axios.post(`http://localhost:3005/api/laporan/kemajuan`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 navigate('/laporan-kemajuan')
             }).catch((err) => {
@@ -159,7 +159,7 @@ function FormLaporanKemajuan() {
     // Edit
 
     const hendleEditLaporanKemajuan = () => {
-        axios.get(`http://localhost:3005/api/laporan/kemajuan/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             if (res.data.data.judulPenelitian) {
                 setJudul(res.data.data.judulPenelitian)

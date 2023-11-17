@@ -46,7 +46,7 @@ function  LaporanAkhir() {
 
 
     const getAllDataLaporanAkhir = () => {
-        axios.get(`http://localhost:3005/api/laporan/akhir?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/akhir?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setJumlahData(res.data.data.length)
             setDataLaporanAkhir(res.data.data)
@@ -58,7 +58,7 @@ function  LaporanAkhir() {
     }
 
     const hendleReadLaporanAkhir = (id) => {
-        axios.get(`http://localhost:3005/api/laporan/akhir/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/akhir/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             // setTahun(res.data.data?.tahun)
@@ -74,7 +74,7 @@ function  LaporanAkhir() {
     }
 
     const getAllPenelitianByStatusPenelian = () => {
-        axios.get(`http://localhost:3005/api/penelitian/laporan?statusPenelitian=5`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/laporan?statusPenelitian=5`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             // console.log(res.data.data)
             setDataPenelitianDisetujuiUsulan(res.data.data)
@@ -84,7 +84,7 @@ function  LaporanAkhir() {
     }
 
     const getAllPengabdianByStatusPengabdian = () => {
-        axios.get(`http://localhost:3005/api/pengabdian/laporan?statusPengabdian=5`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/laporan?statusPengabdian=5`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             // console.log(res.data.data)
             setDataPengabdianDisetujuiUsulan(res.data.data)
@@ -132,7 +132,7 @@ function  LaporanAkhir() {
                 console.log(key+" "+value)
               });
 
-            axios.post(`http://localhost:3005/api/laporan/akhir`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/laporan/akhir`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 getAllDataLaporanAkhir()
             }).catch((err) => {
@@ -150,7 +150,7 @@ function  LaporanAkhir() {
             formData.append('judul', judul)
             formData.append('laporan_akhir_pdf', pdf.pdfAsFile)
    
-            axios.patch(`http://localhost:3005/api/laporan/akhir/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}} )
+            axios.patch(`${process.env.REACT_APP_BASE_API}/laporan/akhir/${id}`, formData, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}} )
             .then(() => {
                 getAllDataLaporanAkhir()
             }).catch((err) => {
@@ -166,7 +166,7 @@ function  LaporanAkhir() {
     const hendleEditLaporanAkhir = (id) => {
 
         setId(id)
-        axios.get(`http://localhost:3005/api/laporan/akhir/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/akhir/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             if (res.data.data.judulPenelitian) {
                 setJudul(res.data.data.judulPenelitian)
@@ -181,7 +181,7 @@ function  LaporanAkhir() {
     }
 
     const hendleDeleteLaporanAkhir = (id) => {
-        axios.delete(`http://localhost:3005/api/laporan/akhir/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.delete(`${process.env.REACT_APP_BASE_API}/laporan/akhir/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then(() => {
             getAllDataLaporanAkhir()
         }).catch((err) => {

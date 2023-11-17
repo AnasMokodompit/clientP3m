@@ -24,7 +24,7 @@ function Penjadwalan() {
 
 
     const hendleGetAllJadwalp3m = () => {
-        axios(`http://localhost:3005/api/penJadwalan?page=${page}&row=${row}&searchJudulJadwal=${searchJudulJadwal}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios(`${process.env.REACT_APP_BASE_API}/penJadwalan?page=${page}&row=${row}&searchJudulJadwal=${searchJudulJadwal}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setJumlahData(res.data.data.length)
             setJadwalp3m(res.data.data)
@@ -42,7 +42,7 @@ function Penjadwalan() {
 
     const hendleEditPenjadwalan = (id) => {
         setId(id)
-        axios.get(`http://localhost:3005/api/penJadwalan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penJadwalan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setJudulJadwal(res.data.data.jadwalJudul)
@@ -55,7 +55,7 @@ function Penjadwalan() {
     }
 
     const handleDeletePenjadwalan = (id) => {
-        axios.delete(`http://localhost:3005/api/penJadwalan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.delete(`${process.env.REACT_APP_BASE_API}/penJadwalan/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then(() => {
             hendleGetAllJadwalp3m()
         }).catch((err) => {
@@ -78,7 +78,7 @@ function Penjadwalan() {
                 keterangan: keterangan
             }
 
-            axios.post(`http://localhost:3005/api/penJadwalan` ,dataCreatePenjadwalan, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/penJadwalan` ,dataCreatePenjadwalan, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleGetAllJadwalp3m()
             }).catch((err) => {
@@ -93,7 +93,7 @@ function Penjadwalan() {
                 keterangan: keterangan
             }
 
-            axios.patch(`http://localhost:3005/api/penJadwalan/${id}` ,dataUpdatePenjadwalan, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/penJadwalan/${id}` ,dataUpdatePenjadwalan, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleGetAllJadwalp3m()
             }).catch((err) => {

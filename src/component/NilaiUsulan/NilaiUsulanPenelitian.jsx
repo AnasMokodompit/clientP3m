@@ -45,7 +45,7 @@ function NilaiUsulanPenelitian() {
     }
 
     const hendleGetReviewerAllByJudulPenelitian = () => {
-        axios.get(`http://localhost:3005/api/reviewerPenelitian?idJudulPenelitian=${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/reviewerPenelitian?idJudulPenelitian=${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setDataReviewer(res.data.data?.reviewPenelitian)
@@ -53,7 +53,7 @@ function NilaiUsulanPenelitian() {
 
             if (res.data.data?.reviewPenelitian[0].sebagai) {
                 
-                axios.get(`http://localhost:3005/api/nilaiUsulan/penelitian?id=${res.data.data?.reviewPenelitian[0].id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.get(`${process.env.REACT_APP_BASE_API}/nilaiUsulan/penelitian?id=${res.data.data?.reviewPenelitian[0].id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then((res) => {
                     setDataNilai(res.data.data)
                     setDataPenilaian(res.data.data?.nilaiPenelitian?.nilaiPenelitian)
@@ -68,7 +68,7 @@ function NilaiUsulanPenelitian() {
     }
 
     const hendleGetNilaiPenelitianByReviewer = () => {
-        axios.get(`http://localhost:3005/api/nilaiUsulan/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/nilaiUsulan/penelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 // console.log(res.data.data)
                 setDataPenilaian(res.data.data?.nilaiPenelitian)
@@ -80,7 +80,7 @@ function NilaiUsulanPenelitian() {
     }
 
     const hendleGetNilaiPenelitian = (idNilai) => {
-        axios.get(`http://localhost:3005/api/nilaiUsulan/penelitian?id=${idNilai}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/nilaiUsulan/penelitian?id=${idNilai}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataNilai(res.data.data)
             setDataPenilaian(res.data.data?.nilaiPenelitian?.nilaiPenelitian)
@@ -94,7 +94,7 @@ function NilaiUsulanPenelitian() {
     
     const hendleGetReviewerAllByJudulPengabdian = () => {
         console.log('tes')
-        axios.get(`http://localhost:3005/api/reviewerPengabdian?idJudulPengabdian=${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/reviewerPengabdian?idJudulPengabdian=${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setDataReviewer(res.data.data?.reviewPengabdian)
@@ -102,7 +102,7 @@ function NilaiUsulanPenelitian() {
 
             if (res.data.data?.reviewPengabdian[0].sebagai) {
                 
-                axios.get(`http://localhost:3005/api/nilaiUsulan/pengabdian?id=${res.data.data?.reviewPengabdian[0].id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.get(`${process.env.REACT_APP_BASE_API}/nilaiUsulan/pengabdian?id=${res.data.data?.reviewPengabdian[0].id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then((res) => {
                     setDataNilai(res.data.data)
                     setDataPenilaian(res.data.data?.nilaiPengabdian?.nilaiPengabdian)
@@ -118,7 +118,7 @@ function NilaiUsulanPenelitian() {
 
 
     const hendleGetNilaiPengabdianByReviewer = () => {
-        axios.get(`http://localhost:3005/api/nilaiUsulan/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/nilaiUsulan/pengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 console.log(res.data.data)
                 setDataPenilaian(res.data.data?.nilaiPengabdian)
@@ -132,7 +132,7 @@ function NilaiUsulanPenelitian() {
 
     const hendleGetNilaiPengabdian = (idNilai) => {
        
-        axios.get(`http://localhost:3005/api/nilaiUsulan/pengabdian?id=${idNilai}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/nilaiUsulan/pengabdian?id=${idNilai}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataNilai(res.data.data)
             setDataPenilaian(res.data.data?.nilaiPengabdian?.nilaiPengabdian)

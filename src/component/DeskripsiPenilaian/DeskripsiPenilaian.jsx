@@ -28,7 +28,7 @@ function DeskripsiPenilaian() {
 
 
     const hendlegetAllSkemaPenelitian = () => {
-        axios.get(`http://localhost:3005/api/skemaPenelitian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/skemaPenelitian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataSkemaPenelitian(res.data.data)
         }).catch((err) => {
@@ -37,7 +37,7 @@ function DeskripsiPenilaian() {
     }
 
     const hendlegetAllSkemaPengabdian = () => {
-        axios.get(`http://localhost:3005/api/skemaPengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/skemaPengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataSkemaPengabdian(res.data.data)
         }).catch((err) => {
@@ -46,7 +46,7 @@ function DeskripsiPenilaian() {
     }    
 
     const hendleGetAllDeskripsiPenilaianPenelitian = () => {
-        axios.get(`http://localhost:3005/api/deskripsiPenilaianPenelitian?page=${page}&row=${row}&searchSkema=${searchSkema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPenelitian?page=${page}&row=${row}&searchSkema=${searchSkema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setJumlahDataDeskripsiPenilaian(res.data.data.length)
             setDataDeskripsiPenilaianPenelitian(res.data.data)
@@ -56,7 +56,7 @@ function DeskripsiPenilaian() {
     }
 
     const hendleGetAllDeskripsiPenilaianPengabdian = () => {
-        axios.get(`http://localhost:3005/api/deskripsiPenilaianPengabdian?page=${page}&row=${row}&searchSkema=${searchSkema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPengabdian?page=${page}&row=${row}&searchSkema=${searchSkema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setJumlahDataDeskripsiPenilaian(res.data.data.length)
                 setDataDeskripsiPenilaianPengabdian(res.data.data)
@@ -69,7 +69,7 @@ function DeskripsiPenilaian() {
         setId(id)
 
         if (pathname === '/data-penelitian/deskripsiPenilaian') {
-            axios.get(`http://localhost:3005/api/deskripsiPenilaianPenelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPenelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setDeskripsiPenilaian(res.data.data.name)
                 setSkema(res.data.data.skema)
@@ -77,7 +77,7 @@ function DeskripsiPenilaian() {
                 console.log(err)
             })
         }else{
-            axios.get(`http://localhost:3005/api/deskripsiPenilaianPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 // console.log(res.data.data)
                 setDeskripsiPenilaian(res.data.data.name)
@@ -92,7 +92,7 @@ function DeskripsiPenilaian() {
     const hendleDeleteDeskripsiPenilaian = (id) => {
 
         if (pathname === '/data-penelitian/deskripsiPenilaian') {
-            axios.delete(`http://localhost:3005/api/deskripsiPenilaianPenelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.delete(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPenelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendleGetAllDeskripsiPenilaianPenelitian()
             }).catch((err) => {
@@ -104,7 +104,7 @@ function DeskripsiPenilaian() {
                 }
             })
         }else{
-            axios.delete(`http://localhost:3005/api/deskripsiPenilaianPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.delete(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendleGetAllDeskripsiPenilaianPengabdian()
             }).catch((err) => {
@@ -133,14 +133,14 @@ function DeskripsiPenilaian() {
 
         if (pathname === '/data-penelitian/deskripsiPenilaian') {
             if (popupDeskripsiPenilaian === 'TambahDeskripsiPenilaian') {
-                axios.post(`http://localhost:3005/api/deskripsiPenilaianPenelitian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.post(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPenelitian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then(() => {
                     hendleGetAllDeskripsiPenilaianPenelitian()
                 }).catch((err) => {
                     console.log(err)
                 })
             }else{
-                axios.patch(`http://localhost:3005/api/deskripsiPenilaianPenelitian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.patch(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPenelitian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then(() => {
                     hendleGetAllDeskripsiPenilaianPenelitian()
                 }).catch((err)=> {
@@ -149,14 +149,14 @@ function DeskripsiPenilaian() {
             }
         }else{
             if (popupDeskripsiPenilaian === 'TambahDeskripsiPenilaian') {
-                axios.post(`http://localhost:3005/api/deskripsiPenilaianPengabdian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.post(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPengabdian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then(() => {
                     hendleGetAllDeskripsiPenilaianPengabdian()
                 }).catch((err) => {
                     console.log(err)
                 })
             }else{
-                axios.patch(`http://localhost:3005/api/deskripsiPenilaianPengabdian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.patch(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPengabdian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then(() => {
                     hendleGetAllDeskripsiPenilaianPengabdian()
                 }).catch((err)=> {

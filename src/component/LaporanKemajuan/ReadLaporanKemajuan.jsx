@@ -18,7 +18,7 @@ function ReadLaporanKemajuan() {
 
 
     const hendleEditLaporanKemajuan = () => {
-        axios.get(`http://localhost:3005/api/laporan/kemajuan/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             if (res.data.data.judulPenelitian) {
                 setJudul(res.data.data.judulPenelitian)

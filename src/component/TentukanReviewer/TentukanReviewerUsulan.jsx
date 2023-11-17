@@ -68,7 +68,7 @@ function TentukanReviwer() {
     // Laporan
     const hendleGetAllAssesmentLaporan = () => {
         console.log('tes')
-        axios.get(`http://localhost:3005/api/laporan/assesment?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/assesment?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setAssesmentLaporan(res.data.data)
             console.log(res.data.data)
@@ -80,7 +80,7 @@ function TentukanReviwer() {
 
 
     const hendleGetAllPeneltianAssesment = () => {
-        axios.get(`http://localhost:3005/api/penelitian/assesment?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/assesment?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setPenelitianAssesment(res.data.data)
         }).catch((err) => {
@@ -89,7 +89,7 @@ function TentukanReviwer() {
     }
 
     const hendleGetAllPengabdianAssesment = () => {
-        axios.get(`http://localhost:3005/api/pengabdian/assesment?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/assesment?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             // console.log(res.data.data)
             setPengabdianAssesment(res.data.data)
@@ -106,7 +106,7 @@ function TentukanReviwer() {
     const hendleEditTentuReviewerPenelitian = (id, judul) => {
 
         setJudul(judul)
-        axios.get(`http://localhost:3005/api/reviewerPenelitian?judul=${judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/reviewerPenelitian?judul=${judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setReviewer(res.data.data)
         }).catch((err) => {
@@ -117,7 +117,7 @@ function TentukanReviwer() {
     const hendleEditTentuReviewerPengabdian = (id, judul) => {
 
         setJudul(judul)
-        axios.get(`http://localhost:3005/api/reviewerPengabdian?judul=${judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/reviewerPengabdian?judul=${judul}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setReviewer(res.data.data)
         }).catch((err) => {
@@ -148,7 +148,7 @@ function TentukanReviwer() {
                 }
             })
 
-            axios.post(`http://localhost:3005/api/reviewerPenelitian` , Data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/reviewerPenelitian` , Data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleGetAllPeneltianAssesment()
             }).catch((err)=> {
@@ -171,7 +171,7 @@ function TentukanReviwer() {
                 }
             })
 
-            axios.post(`http://localhost:3005/api/reviewerPengabdian` , Data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/reviewerPengabdian` , Data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleGetAllPengabdianAssesment()
             }).catch((err)=> {
@@ -212,7 +212,7 @@ function TentukanReviwer() {
 
 
 
-            axios.patch(`http://localhost:3005/api/reviewerPenelitian`, dataOVerAll, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/reviewerPenelitian`, dataOVerAll, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleGetAllPeneltianAssesment()
             }).catch((err) => {
@@ -252,7 +252,7 @@ function TentukanReviwer() {
 
 
 
-            axios.patch(`http://localhost:3005/api/reviewerPengabdian`, dataOVerAll, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/reviewerPengabdian`, dataOVerAll, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 hendleGetAllPengabdianAssesment()
             }).catch((err) => {
@@ -283,7 +283,7 @@ function TentukanReviwer() {
 
         const index = e.target.id;
 
-        axios.get(`http://localhost:3005/api/users?name=${e.target.value}&Role=2`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users?name=${e.target.value}&Role=2`, {headers : { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setListName(res.data.data)
         }).catch((err) => {
@@ -349,7 +349,7 @@ function TentukanReviwer() {
 
     // For Penilaian
     const hendleGetAllRevuewerPenelitianByUser = () => {
-        axios.get(`http://localhost:3005/api/reviewerPenelitian?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/reviewerPenelitian?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setUserReviewerPenelitian(res.data.data)
         }).catch((err) => {
@@ -359,7 +359,7 @@ function TentukanReviwer() {
 
     // For Pengabdian
     const hendleGetAllRevuewerPengabdianByUser = () => {
-        axios.get(`http://localhost:3005/api/reviewerPengabdian?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/reviewerPengabdian?page=${page}&row=${row}&searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setUserReviewerPengabdian(res.data.data)
         }).catch((err) => {
@@ -374,7 +374,7 @@ function TentukanReviwer() {
 
         console.log(nameJadwal)
 
-        axios.get(`http://localhost:3005/api/penJadwalan?searchJudulJadwal=${nameJadwal}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penJadwalan?searchJudulJadwal=${nameJadwal}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data, new Date().getTime(), new Date(res.data.data[0].tglMulai).getTime())
             if (res.data.data.length === 0) {
@@ -410,7 +410,7 @@ function TentukanReviwer() {
     const hendleAddReviewerByUserPenelitian = (id, skema) => {
         setIdNilaiUsulan(id)
 
-        axios.get(`http://localhost:3005/api/deskripsiPenilaianPenelitian?searchSkema=${skema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPenelitian?searchSkema=${skema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDeskripsiPenilaian(res.data.data)
         }).catch((err) => {
@@ -426,7 +426,7 @@ function TentukanReviwer() {
         }
 
 
-        axios.get(`http://localhost:3005/api/reviewerPenelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/reviewerPenelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             // console.log(res.data.data.nilaiPenelitian)
             // s => { return [...s, { id: data.id, nilai: e.target.value}]}
@@ -443,7 +443,7 @@ function TentukanReviwer() {
     const hendleAddReviewerByUserPengabdian = (id, skema) => {
         setIdNilaiUsulan(id)
 
-        axios.get(`http://localhost:3005/api/deskripsiPenilaianPengabdian?searchSkema=${skema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/deskripsiPenilaianPengabdian?searchSkema=${skema}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             setDeskripsiPenilaian(res.data.data)
@@ -459,7 +459,7 @@ function TentukanReviwer() {
             setNilai([])
         }
 
-        axios.get(`http://localhost:3005/api/reviewerPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/reviewerPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             // console.log(res.data.data)
             res.data.data?.nilaiPengabdian.map((data, i) => {
@@ -487,7 +487,7 @@ function TentukanReviwer() {
 
         if (pathname === '/reviewer/data-penelitian') {
             
-            axios.patch(`http://localhost:3005/api/reviewerPenelitian/${idNilaiUsulan}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/reviewerPenelitian/${idNilaiUsulan}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 toast(`Berhasil Memberikan Nilai`)
                 hendleGetAllRevuewerPenelitianByUser()
@@ -498,7 +498,7 @@ function TentukanReviwer() {
         }else if (pathname === '/reviewer/data-pengabdian') {
             // console.log(data)
 
-            axios.patch(`http://localhost:3005/api/reviewerPengabdian/${idNilaiUsulan}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/reviewerPengabdian/${idNilaiUsulan}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 toast(`Berhasil Memberikan Nilai`)
                 hendleGetAllRevuewerPengabdianByUser()
@@ -525,7 +525,7 @@ function TentukanReviwer() {
 
         if (pathname === '/reviewer/data-penelitian') {
             
-            axios.post(`http://localhost:3005/api/nilaiUsulan/penelitian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/nilaiUsulan/penelitian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 toast(`Berhasil Mengubah Nilai`)
                 hendleGetAllRevuewerPenelitianByUser()
@@ -536,7 +536,7 @@ function TentukanReviwer() {
         }else if (pathname === '/reviewer/data-pengabdian') {
             // console.log(data)
 
-            axios.post(`http://localhost:3005/api/nilaiUsulan/pengabdian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/nilaiUsulan/pengabdian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 toast(`Berhasil Mengubah Nilai`)
                 hendleGetAllRevuewerPengabdianByUser()

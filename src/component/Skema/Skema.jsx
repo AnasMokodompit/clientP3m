@@ -25,7 +25,7 @@ function Skema() {
 
     // Penelitian
     const hendlegetAllSkemaPenelitian = () => {
-        axios.get(`http://localhost:3005/api/skemaPenelitian?page=${page}&row=${row}&searchName=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/skemaPenelitian?page=${page}&row=${row}&searchName=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setJumlahDataSkema(res.data.data.length)
             setDataSkemaPenelitian(res.data.data)
@@ -37,7 +37,7 @@ function Skema() {
 
 
     const hendlegetAllSkemaPengabdian = () => {
-        axios.get(`http://localhost:3005/api/skemaPengabdian?page=${page}&row=${row}&searchName=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/skemaPengabdian?page=${page}&row=${row}&searchName=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setJumlahDataSkema(res.data.data.length)
                 setDataSkemaPengabdian(res.data.data)
@@ -51,14 +51,14 @@ function Skema() {
         setId(id)
 
         if (pathname === '/data-penelitian/skema') {
-            axios.get(`http://localhost:3005/api/skemaPenelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/skemaPenelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setSkema(res.data.data.name)
             }).catch((err)=> {
                 console.log(err)
             })
         }else{
-            axios.get(`http://localhost:3005/api/skemaPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.get(`${process.env.REACT_APP_BASE_API}/skemaPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 setSkema(res.data.data.name)
             }).catch((err)=> {
@@ -71,7 +71,7 @@ function Skema() {
     const hendleDeleteSkema = (id) => {
 
         if (pathname === '/data-penelitian/skema') {
-            axios.delete(`http://localhost:3005/api/skemaPenelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.delete(`${process.env.REACT_APP_BASE_API}/skemaPenelitian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendlegetAllSkemaPenelitian()
             }).catch((err) => {
@@ -83,7 +83,7 @@ function Skema() {
                 }
             })
         }else{
-            axios.delete(`http://localhost:3005/api/skemaPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.delete(`${process.env.REACT_APP_BASE_API}/skemaPengabdian/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then(() => {
                 hendlegetAllSkemaPengabdian()
             }).catch((err) => {
@@ -110,14 +110,14 @@ function Skema() {
 
         if (pathname === '/data-penelitian/skema') {
             if (popupSkema === 'TambahSkema') {
-                axios.post(`http://localhost:3005/api/skemaPenelitian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.post(`${process.env.REACT_APP_BASE_API}/skemaPenelitian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then(() => {
                     hendlegetAllSkemaPenelitian()
                 }).catch((err) => {
                     console.log(err)
                 })
             }else{
-                axios.patch(`http://localhost:3005/api/skemaPenelitian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.patch(`${process.env.REACT_APP_BASE_API}/skemaPenelitian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then(() => {
                     hendlegetAllSkemaPenelitian()
                 }).catch((err)=> {
@@ -127,14 +127,14 @@ function Skema() {
             
         }else{
             if (popupSkema === 'TambahSkema') {
-                axios.post(`http://localhost:3005/api/skemaPengabdian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.post(`${process.env.REACT_APP_BASE_API}/skemaPengabdian`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then(() => {
                     hendlegetAllSkemaPengabdian()
                 }).catch((err) => {
                     console.log(err)
                 })
             }else{
-                axios.patch(`http://localhost:3005/api/skemaPengabdian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+                axios.patch(`${process.env.REACT_APP_BASE_API}/skemaPengabdian/${id}`, data, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
                 .then(() => {
                     hendlegetAllSkemaPengabdian()
                 }).catch((err)=> {

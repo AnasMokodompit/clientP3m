@@ -20,7 +20,7 @@ function SwiperJadwalP3M() {
     const [dataJadwal, setDataJadwal] = useState([])
 
     const hendleGetAllJadwalP3M = () => {
-        axios.get(`http://localhost:3005/api/penJadwalan`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penJadwalan`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataJadwal(res.data.data)
         }).catch((err) => {

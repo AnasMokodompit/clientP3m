@@ -20,7 +20,7 @@ function ReadLaporanAkhir() {
 
 
     const hendleEditLaporanAkhir = () => {
-        axios.get(`http://localhost:3005/api/laporan/akhir/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/akhir/${idEdit.id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             if (res.data.data.judulPenelitian) {
                 setJudul(res.data.data.judulPenelitian)
@@ -39,7 +39,7 @@ function ReadLaporanAkhir() {
     }
 
     const hendleCekLaporanKemajuan = (searchName) => {
-        axios.get(`http://localhost:3005/api/laporan/kemajuan?searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/laporan/kemajuan?searchJudul=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDataKemajuan(res.data.data)
         }).catch((err) => {

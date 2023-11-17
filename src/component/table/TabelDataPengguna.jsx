@@ -23,7 +23,7 @@ function TabelDataPengguna() {
 
     const getAllDataPengguna = () => {
 
-        axios.get(`http://localhost:3005/api/users?page=${page}&row=${row}&name=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users?page=${page}&row=${row}&name=${searchName}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setJumlahData(res.data.data.length)
             setDataPengguna(res.data.data)
@@ -35,7 +35,7 @@ function TabelDataPengguna() {
     const hendleEditDataPengguna = (id) => {
         setId(id)
 
-        axios.get(`http://localhost:3005/api/users/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/users/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setUserName(res.data.data.username)
             setName(res.data.data.name)
@@ -62,7 +62,7 @@ function TabelDataPengguna() {
         }
 
         if (popupDataPengguna === 'TambahDataPengguna') {
-            axios.post(`http://localhost:3005/api/users`, dataUserCreate, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.post(`${process.env.REACT_APP_BASE_API}/users`, dataUserCreate, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {      
                 alert(`User Berhasil Ditambahkan`)
                 getAllDataPengguna()
@@ -73,7 +73,7 @@ function TabelDataPengguna() {
         }else if (popupDataPengguna === 'EditDataPengguna') {
             dataUserCreate.jabatan_kampus = jabatanKampus
 
-            axios.patch(`http://localhost:3005/api/users/roleAdmin/${id}`, dataUserCreate, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+            axios.patch(`${process.env.REACT_APP_BASE_API}/users/roleAdmin/${id}`, dataUserCreate, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
             .then((res) => {
                 alert(`Data User Berhasil Diperbarui`)
                 getAllDataPengguna()
@@ -98,7 +98,7 @@ function TabelDataPengguna() {
     }
     
     const hendleDeleteDataPengguna = (id) => {
-        axios.delete(`http://localhost:3005/api/users/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.delete(`${process.env.REACT_APP_BASE_API}/users/${id}`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(res.data.data)
             getAllDataPengguna()

@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 
 // Char
-import { Chart } from "chart.js/auto"
 import { Bar } from "react-chartjs-2"
 import SwiperJadwalP3M from "../../component/swiper/SwiperJadwalP3M"
 import axios from "axios"
@@ -44,7 +43,7 @@ function Beranda() {
     const hendleReadOnly = () => {
     // Penelitian
         // Semua Penelitian 
-        axios.get(`http://localhost:3005/api/penelitian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setTotalPenelitian(res.data.data.length)
         }).catch((err) => {
@@ -53,7 +52,7 @@ function Beranda() {
 
 
         // Semua Usulan Penelitian 
-        axios.get(`http://localhost:3005/api/penelitian/usulan`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/usulan`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setUsulanPenelitian(res.data.data.length)
         }).catch((err) => {
@@ -61,7 +60,7 @@ function Beranda() {
         })
 
         // Semua Seleksi Penelitian
-        axios.get(`http://localhost:3005/api/penelitian/seleksi`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/seleksi`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setSeleksiPenelitian(res.data.data.length)
         }).catch((err) => {
@@ -69,7 +68,7 @@ function Beranda() {
         })
 
         // Semua Lolos Penelitian
-        axios.get(`http://localhost:3005/api/penelitian/lolos`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/lolos`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setLolosPenelitian(res.data.data.length)
         }).catch((err) => {
@@ -77,7 +76,7 @@ function Beranda() {
         })
 
         // Semua Ditolak Penelitian
-        axios.get(`http://localhost:3005/api/penelitian/ditolak`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/ditolak`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDitolakPenelitian(res.data.data.length)
         }).catch((err) => {
@@ -87,7 +86,7 @@ function Beranda() {
 
     // Pengabdian
         // Semua Pengabdian 
-        axios.get(`http://localhost:3005/api/pengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setTotalPengabdian(res.data.data.length)
         }).catch((err) => {
@@ -96,7 +95,7 @@ function Beranda() {
 
 
         // Semua Usulan Pengabdian 
-        axios.get(`http://localhost:3005/api/pengabdian/usulan`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/usulan`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setUsulanPengabdian(res.data.data.length)
         }).catch((err) => {
@@ -104,7 +103,7 @@ function Beranda() {
         })
 
         // Semua Seleksi Pengabdian
-        axios.get(`http://localhost:3005/api/pengabdian/seleksi`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/seleksi`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setSeleksiPengabdian(res.data.data.length)
         }).catch((err) => {
@@ -112,7 +111,7 @@ function Beranda() {
         })
 
         // Semua Lolos Pengabdian
-        axios.get(`http://localhost:3005/api/pengabdian/lolos`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/lolos`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setLolosPengabdian(res.data.data.length)
         }).catch((err) => {
@@ -120,7 +119,7 @@ function Beranda() {
         })
 
         // Semua Ditolak Pengabdian
-        axios.get(`http://localhost:3005/api/pengabdian/ditolak`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/ditolak`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             setDitolakPengabdian(res.data.data.length)
         }).catch((err) => {
@@ -159,7 +158,7 @@ function Beranda() {
 
         };
 
-        await axios.get(`http://localhost:3005/api/penelitian/statisticPenelitian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        await axios.get(`${process.env.REACT_APP_BASE_API}/penelitian/statisticPenelitian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(data.datasets[0].data, res.data.data)
             data.datasets[0].data = res.data.data
@@ -168,7 +167,7 @@ function Beranda() {
         })
 
         
-        await axios.get(`http://localhost:3005/api/pengabdian/statisticPengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
+        await axios.get(`${process.env.REACT_APP_BASE_API}/pengabdian/statisticPengabdian`, { headers: { Authorization: `Bearer ${dataLogin.dataLogin.token}`}})
         .then((res) => {
             console.log(data.datasets[0].data, res.data.data)
             data.datasets[1].data = res.data.data
